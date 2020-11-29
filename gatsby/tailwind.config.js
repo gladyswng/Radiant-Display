@@ -1,0 +1,43 @@
+module.exports = {
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+  },
+  purge: {
+    content: ["./src/**/*.html", "./src/**/*.tsx"],
+  },
+  theme: {
+    fontFamily: {
+      sans: ['sans-serif, ui-sans-serif, system-ui']
+    },
+    fontSize: {
+        'xs': '.75rem',
+        'sm': '.875rem',
+        'base': '1rem',
+        'lg': '1.125rem',
+        'xl': '1.25rem',
+        '2xl': '1.5rem',
+        '3xl': '1.875rem',
+        '4xl': '2.75rem',
+       
+
+    },
+    colors: {
+      yellow: "#fbc531",
+      gray: "#828282",
+      darkGray: "#454545",
+      lightGray: "#ededed",
+      white: "#fff",
+      black: "#333"
+    },
+    height: {
+      full: '100%',
+      xl: '400px',
+    },
+    extend: {
+  
+    },
+  },
+  variants: {},
+  plugins: [],
+}

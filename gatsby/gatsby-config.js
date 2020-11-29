@@ -1,11 +1,30 @@
+// Initialize dotenv
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`, // or '.env'
+});
+
+// And then you can use the config in gatsby-config.js
+const config = require('gatsby-plugin-config');
+
+
+
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Typescript Tailwind`,
-    description: `An example config of Gatsby + TypeScript + Tailwind CSS`,
+    title: `Radiant Display`,
+    description: `Provides effective display solutions.`,
     author: `@gatsbyjs`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+    resolve: "gatsby-plugin-react-svg",
+    options: {
+      rule: {
+        include: /svg/ // See below to configure properly
+      }
+    }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -33,7 +52,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `docs/logo.svg`, // This path is relative to the root of the site.
+        // icon: `src/svg/radisplay-logo.svg`, // This path is relative to the root of the site.
       },
     },
     {
@@ -46,6 +65,15 @@ module.exports = {
           emitWarning: true,
           failOnError: false,
         },
+      },
+    },
+    {
+      resolve: "gatsby-source-sanity",
+      options: {
+        projectId: "vfhimc8h",
+        dataset: "production",
+        token: config.SANITY_TOKEN
+ 
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

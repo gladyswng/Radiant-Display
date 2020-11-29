@@ -1,0 +1,10 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+/* .svgWhite {
+  filter: invert(99%) sepia(0%) saturate(2%) hue-rotate(104deg) brightness(103%)
+    contrast(100%);
+} */

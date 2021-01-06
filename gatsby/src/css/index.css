@@ -4,7 +4,12 @@
 
 @tailwind utilities;
 
-/* .svgWhite {
-  filter: invert(99%) sepia(0%) saturate(2%) hue-rotate(104deg) brightness(103%)
-    contrast(100%);
+/* @layer components {
+  .nav-btn {
+    @apply block mt-4 md:inline-block md:mt-0 hover:text-yellow mr-4 text-sm;
+  }
+} */
+
+/* .input-gray {
+  @apply block w-full rounded p-3 text-darkgray font-light text-sm placeholder-gray bg-lightGray;
 } */

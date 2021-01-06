@@ -17,7 +17,7 @@ interface CategoriesProps {
 const Categories: React.FC<CategoriesProps> = ({ products }) => {
 
     return (
-      <div className="flex flex-wrap justify-center items-center">
+      <div className="flex flex-wrap justify-center items-center my-4">
         {/* grid gap-4 grid-cols-3 xl:grid-cols-5 */}
         
           {products.map(product => {
@@ -38,7 +38,7 @@ const Categories: React.FC<CategoriesProps> = ({ products }) => {
 
               </div>
                 <Link
-                to="/" className="text-gray mt-4 hover:text-yellow">{product.name}</Link>
+                to="/" className="text-darkGray mt-4 hover:text-yellow">{product.name}</Link>
               </div>
             )
           })}

@@ -1,7 +1,7 @@
-import { Link } from "gatsby";
-import React, { useState } from 'react';
-import LogoName from "../svg/radisplay-logo-name.svg";
-import Logo from "../svg/radisplay-logo.svg";
+import { Link } from "gatsby"
+import React, { useState } from 'react'
+import LogoName from "../svg/radisplay-logo-name.svg"
+import Logo from "../svg/radisplay-logo.svg"
 
 
 interface NavbarProps {
@@ -11,10 +11,10 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({}) => {
     const [isMenuOpen, setMenuOpen] = useState(false)
     return (
-       <nav className="flex items-center justify-between flex-wrap bg-white p-2">
+       <nav className="flex items-center justify-between flex-wrap bg-white p-2 border-b border-gray">
           <div className="flex items-center flex-shrink-0 mr-6">
             <Logo width="40px" height="40px" />
-            <LogoName width="130px" height="40px" className="ml-4"/>
+            <LogoName width="130px" height="40px" className="ml-4" />
             {/* <span className="font-semibold text-xl tracking-tight">
               Radiant Display
             </span> */}
@@ -46,32 +46,31 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
             <div className="text-m md:flex-grow">
               <Link
                 to="/"
-                className="block mt-4 md:inline-block md:mt-0  hover:text-yellow mr-4 text-sm"
+                className="block mt-4 md:inline-block md:mt-0  hover:text-yellow mr-4 text-sm lg:text-base lg:text-base text-yellow"
               >
                 HOME
               </Link>
               <Link
-                to="/"
-                className="block mt-4 md:inline-block md:mt-0  hover:text-yellow mr-4 text-xs text-sm"
+                to="/about"
+                className="block mt-4 md:inline-block md:mt-0 hover:text-yellow mr-4 text-sm lg:text-base"
               >
-                ABOUT US
+                ABOUT
               </Link>
               <Link
                 to="/"
-                className="block mt-4 md:inline-block md:mt-0  hover:text-yellow mr-4 text-sm"
+                className="block mt-4 md:inline-block md:mt-0 hover:text-yellow mr-4 text-sm lg:text-base"
               >
                 PRODUCTS
               </Link>
               <Link
-                to="/"
-                className="block mt-4 md:inline-block md:mt-0 text-black hover:text-yellow mr-4 text-sm"
+                to="/FAQ"
+                className="block mt-4 md:inline-block md:mt-0 hover:text-yellow mr-4 text-sm lg:text-base"
               >
-        
-                PRODUCTION
+                FAQ
               </Link>
               <Link
-                to="/"
-                className="block mt-4 md:inline-block md:mt-0 text-black hover:text-yellow text-sm"
+                to="/contact"
+                className="block mt-4 md:inline-block md:mt-0 hover:text-yellow mr-4 text-sm lg:text-base"
               >
                 CONTACT US
               </Link>
@@ -79,6 +78,6 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
             
           </div>
         </nav>
-    );
+    )
 }
 export default Navbar

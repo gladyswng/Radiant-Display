@@ -6,10 +6,7 @@ module.exports = {
   purge: {
     content: ["./src/**/*.html", "./src/**/*.tsx"],
   },
-  theme: {
-    fontFamily: {
-      sans: ['sans-serif, ui-sans-serif, system-ui']
-    },
+  theme: { 
     fontSize: {
         'xs': '.75rem',
         'sm': '.875rem',
@@ -19,6 +16,7 @@ module.exports = {
         '2xl': '1.5rem',
         '3xl': '1.875rem',
         '4xl': '2.75rem',
+        '5xl': '3rem',
        
 
     },

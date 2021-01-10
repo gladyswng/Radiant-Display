@@ -36,7 +36,7 @@ const contact: React.FC<contactProps> = ({}) => {
   ]
     return (
       <div className="flex items-center flex-col w-screen mb-40">
-        <h1 className="text-darkGray text-4xl font-bold my-6">CONTACT US</h1>
+        <h1 className="text-rd-darkGray text-3xl md:text-4xl font-bold my-6">CONTACT US</h1>
 
         <div className="md:grid md:grid-cols-3 md:gap-16 px-9 w-9/12">
         {/* md:grid md:grid-cols-2 md:gap-16 px-9 w-8/12 */}
@@ -44,8 +44,8 @@ const contact: React.FC<contactProps> = ({}) => {
 
             <ContactForm/>
           </div>
-          <div className="text-center font-light text-darkGray leading-7">
-            <h5 className="text-2xl text-yellow mb-2">More Details... </h5>
+          <div className="text-center font-light text-rd-darkGray leading-7 my-4 md:my-0">
+            <h5 className="text-2xl text-rd-yellow mb-2">More Details... </h5>
             <div className="text-sm">
               <p>Use our contact form to reach us or send your inquiry directly to </p>
               <strong>info@radiant-display.com</strong>

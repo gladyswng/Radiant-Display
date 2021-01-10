@@ -21,16 +21,15 @@ module.exports = {
 
     },
     colors: {
-      yellow: "#fbc531",
-      gray: "#828282",
-      darkGray: "#454545",
-      lightGray: "#ededed",
-      white: "#fff",
-      black: "#333"
+      'rd-yellow': "#fbc531",
+      'rd-gray': "#828282",
+      'rd-darkGray': "#454545",
+      'rd-lightGray': "#ededed",
+      'rd-white': "#fff"
     },
-    height: {
-      full: '100%',
-      xl: '400px',
+    placeholderColor: {
+      'rd-lightGray': "#ededed",
+      'rd-gray': "#828282",
     },
     extend: {
   

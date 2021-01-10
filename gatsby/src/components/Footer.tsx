@@ -13,10 +13,10 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({}) => {
     return (
-      <div className="bg-lightGray w-screen p-4 md:p-10 flex flex-col md:flex-row justify-between">
+      <div className="bg-rd-lightGray w-screen p-4 md:p-10 flex flex-col md:flex-row justify-between">
         <div className="p-4 md:w-4/12" >
 
-          <div className="mb-4">
+          <div className="mb-4 flex">
             <Logo height="50px" width="80px" className="mr-2 inline-block"/>
             <LogoName height="50px" width="200px" className="inline-block"/>
           </div>
@@ -44,16 +44,16 @@ const Footer: React.FC<FooterProps> = ({}) => {
         </div>
 
         <div className="p-4 ">
-          <h4 className="text-2xl text-yellow font-light mb-6">Quick Links</h4>
-          <Link to="/" className="block font-light hover:text-yellow pb-2 text-normal">About Us</Link>
-          <Link to="/" className="block font-light hover:text-yellow pb-2 text-normal">Products</Link>
-          <Link to="/" className="block font-light hover:text-yellow pb-2 text-normal">Our Production</Link>
-          <Link to="/" className="block font-light hover:text-yellow pb-2 text-normal">Corporate Responsibility</Link>
-          <Link to="/" className="block font-light hover:text-yellow pb-2 text-normal">Contact Us</Link>
+          <h4 className="text-2xl text-rd-yellow font-light mb-6">Quick Links</h4>
+          <Link to="/" className="block font-light hover:text-rd-yellow pb-2 text-normal">About Us</Link>
+          <Link to="/" className="block font-light hover:text-rd-yellow pb-2 text-normal">Products</Link>
+          <Link to="/" className="block font-light hover:text-rd-yellow pb-2 text-normal">Our Production</Link>
+          <Link to="/" className="block font-light hover:text-rd-yellow pb-2 text-normal">Corporate Responsibility</Link>
+          <Link to="/" className="block font-light hover:text-rd-yellow pb-2 text-normal">Contact Us</Link>
         </div>
 
         <div className="p-4">
-          <h4 className="text-2xl text-yellow font-light mb-6">Contact Us</h4>
+          <h4 className="text-2xl text-rd-yellow font-light mb-6">Contact Us</h4>
           <ContactForm small/>
         </div>
 

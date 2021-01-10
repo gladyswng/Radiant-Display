@@ -1,0 +1,23 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.nav-btn {
+  @apply block mt-4  mr-4 text-sm;
+}
+
+.nav-btn:hover {
+  @apply text-rd-yellow;
+}
+
+.input-rd-gray {
+  @apply block w-full rounded p-3 text-rd-darkGray font-light text-sm bg-rd-lightGray;
+}
+
+@screen md {
+  .nav-btn {
+    @apply inline-block mt-0;
+  }
+}

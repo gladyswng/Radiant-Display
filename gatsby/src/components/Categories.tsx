@@ -24,11 +24,11 @@ const Categories: React.FC<CategoriesProps> = ({ products }) => {
             return (
               <div key={product.id} className="flex flex-col justify-center items-center p-4 
               " >
-              <div className=" rounded-full flex items-center justify-center  bg-lightGray" style={{ height: 160, width: 160 }}>
-                  {/* <div className="pb-4 rounded-full bg-contain bg-no-repeat bg-center bg-lightGray w-40 flex items-center justify-center" style={{
+              <div className=" rounded-full flex items-center justify-center  bg-rd-lightGray" style={{ height: 160, width: 160 }}>
+                  {/* <div className="pb-4 rounded-full bg-contain bg-no-repeat bg-center bg-rd-lightGray w-40 flex items-center justify-center" style={{
                 height: 150,
                 backgroundImage:`url(${product.cover.asset.fluid.src})` }}> */}
-                {/* border-lightGray border-b-2  */}
+                {/* border-rd-lightGray border-b-2  */}
                 <Img  
                 className="transform hover:scale-105"
                 imgStyle={{ objectFit: "contain" }}
@@ -38,7 +38,7 @@ const Categories: React.FC<CategoriesProps> = ({ products }) => {
 
               </div>
                 <Link
-                to="/" className="text-darkGray mt-4 hover:text-yellow">{product.name}</Link>
+                to="/" className="text-rd-darkGray mt-4 hover:text-rd-yellow">{product.name}</Link>
               </div>
             )
           })}

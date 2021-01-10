@@ -22,11 +22,11 @@ const ContactCard: React.FC<ContactCardProps> = ({ company }) => {
   const { title, name, description, location, phone, fax } = company
 
     return (
-       <div className="leading-6 text-darkGray"  >
+       <div className="leading-6 text-rd-darkGray mt-8 md:mt-0"  >
             <div>
-              <h5 className="text-yellow text-xl font-light border-b border-yellow">{title}</h5>
+              <h5 className="text-rd-yellow text-xl font-light border-b border-rd-yellow">{title}</h5>
               <p className="text-semibold py-2">{name}</p>
-              <p className="text-gray text-sm mb-2 font-light">{description}</p>
+              <p className="text-rd-gray text-sm mb-2 font-light">{description}</p>
             </div>
              <li className="list-none">
               <ul className="py-2 flex item-start">

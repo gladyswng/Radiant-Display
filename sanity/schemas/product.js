@@ -19,17 +19,28 @@ export default {
       }
     },
     {
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+    },
+    {
       name: 'cover',
       title: 'Cover',
       type: 'image',
       description: 'Cover of the product'
     },
     {
-      name: 'imagesGallery',
-      title: 'Images Gallery',
+      name: 'imageGallery',
+      title: 'Image Gallery',
       type: 'array',
       of:[{ type: 'image' }],
+      
       description: 'Images Gallery of the product'
+    },
+    {
+      name: 'dimensionalDrawing',
+      title: 'Dimensional Drawing',
+      type: 'image'
     },
 
     {
@@ -46,11 +57,59 @@ export default {
       description: 'Keywords of the product'
     },
     {
-      name: 'models',
-      title: 'models',
-      type: 'array',
-      of:[{ type: 'string' }],
-      description: 'Models of the product'
+      name: 'size',
+      title: 'Size',
+      type: 'string'
+    }, 
+    {
+      name: 'resolution',
+      title: 'Resolution',
+      type: 'string'
     },
+    {
+      name: 'pixel',
+      title: 'Pixel',
+      type: 'string'
+    },
+    {
+      name: 'item',
+      title: 'Item',
+      type: 'string'
+    },
+    {
+      name: 'displayColor',
+      title: 'Display Color',
+      type: 'string'
+    },
+    {
+      name: 'activeArea',
+      title: 'Active Area',
+      type: 'string'
+    },
+    {
+      name: 'viewingArea',
+      title: 'Viewing Area',
+      type: 'string'
+    },
+    {
+     name: 'outlineDimension',
+     title: 'Outline Dimension',
+     type: 'string' 
+    },
+    {
+      name: 'dotsSize',
+      title: 'Dots Size',
+      type: 'string'
+    },
+    {
+      name: 'controller',
+      title: 'Controller',
+      type: 'string'
+    },
+    {
+      name: 'interface',
+      title: 'Interface',
+      type: 'string'
+    }
   ]
 }

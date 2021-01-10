@@ -1,94 +1,87 @@
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import React from 'react'
-import Img, { FluidObject } from 'gatsby-image'
+import SubNavbar from '../components/SubNavbar'
+
 interface productProps {
-  data: {
-    category: {
-      nodes: {
-        name: string
-        image: Image
-        description: string
-        details: string[]
-
-
-      } []
-    }
-  }
+  
 }
 
-interface Image {
-  asset: {
-    fluid:  FluidObject
-  }
-} 
+const product: React.FC<productProps> = ({ data }) => {
+  const product = data.product.nodes[0]
+  const productList = [product, product, product, product, product, product]
+  console.log(productList)
 
-const product: React.FC<productProps> = ({data}) => {
-  console.log(data)
-  const category = data.category.nodes[0]
     return (
-      <div className="flex items-center flex-col w-full mb-20">
-         <h2 className="text-darkGray text-2xl font-bold my-6 ">PRODUCTS</h2>
+      <SubNavbar subNav="products">
+        {/* <div className=""> */}
+
         
-        <div className="border-b border-darkGray w-9/12 flex justify-around mb-8 text-darkGray font-light text-lg">
-          <Link to="/about" className="block mt-4 md:inline-block md:mt-0 hover:text-yellow">STN</Link>
-          <Link to="/production" className="block mt-4 md:inline-block md:mt-0 hover:text-yellow">FSTD</Link>
-          <Link to="/FAQ" className="block mt-4 md:inline-block md:mt-0 hover:text-yellow">TN</Link>
-          <Link to="/CSR" className="block mt-4 md:inline-block md:mt-0 hover:text-yellow">HTN</Link>
-          <Link to="/CSR" className="block mt-4 md:inline-block md:mt-0 hover:text-yellow">VA</Link>
-        </div>
-        <div className="md:grid md:grid-cols-3 md:gap-8 w-9/12">
-          {/* <p className="text-xl text-darkGray ">Product</p>
-          <ul>
-            
-            <li>STN</li>
-            <li>FSTD</li>
-            <li>TN</li>
-            <li>HTN</li>
-            <li>VA</li>
-          </ul> */}
-          <div className="w-full m-auto">
-            <Img fluid={category.image.asset.fluid}/>
+          <h1>{product.name} - {product.item}</h1>
+          <div className="overflow-x-auto w-10/12 flex justify-center " style={{ maxHeight: '300px' }} >
+
+
+            <table className="w-9/12 max-w-full text-center text-rd-darkGray relative" >
+              <thead className="">
+                <tr >
+                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Size</th>
+                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Pixel</th>
+                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Item</th>
+                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Active Area</th>
+                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Outline Dimension</th>
+                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Dots Size</th>
+                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Controller</th>
+                </tr>
+              </thead>
+              <tbody className="overflow-y-scroll">
+                {productList.map((product, index) => {
+                  return (
+                    <tr key={index}>
+                      <td className="font-light p-2">{product.size}</td>
+                      <td className="font-light p-2">{product.pixel}</td>
+                      <td className="font-light p-2">{product.item}</td>
+                      <td className="font-light p-2">{product.activeArea}</td>
+                      <td className="font-light p-2">{product.outlineDimension}</td>
+                      <td className="font-light p-2">{product.dotsSize}</td>
+                      <td className="font-light p-2">{product.controller}</td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
           </div>
+        {/* </div> */}
 
-          <div className="col-span-2 ">
-              <h4 className="font-bold text-darkGray">{category.name}</h4>
-              <p className="text-darkGray font-light">{category.description}</p>
-              <br/>
-              {category.details.map(detail => {
-                return (
-                <p className=" text-sm font-light" >&gt; &nbsp;&nbsp;{detail}</p>
-                )
-              })}
-
-          </div>
-
-
-         
-        </div>
-      </div>
+      </SubNavbar>
     )
 }
 export default product
 
 export const query = graphql`
-  query {
-    category: allSanityCategory {
+query {
+  product:allSanityProduct(filter: {slug: {current: {eq: "stn-lcd-panel"}}}) {
     nodes {
+      description
       name
-      image {
+      keywords
+      imageGallery {
         asset {
-          fluid(maxWidth: 800) {
-            ...GatsbySanityImageFluid
+          fixed(width: 140) {
+          ...GatsbySanityImageFixed
           }
+          
         }
       }
-      details
-      description
-      slug {
-        current
-      }
+      activeArea
+      outlineDimension
+      controller
+      pixel
+      resolution
+      size
+      item
+      dotsSize
+      displayColor
     }
   }
-  
+
 }
 `

@@ -20,63 +20,67 @@ interface ProductApplicationProps {
 const ProductApplication: React.FC<ProductApplicationProps> = ({}) => {
   
     return (
-      <div className="grid grid-cols-5 gap-4 py-6 ">
+      <div className="grid grid-cols-3 md:grid-cols-5 gap-4 py-6 ">
         <div className="flex flex-col justify-start items-center w-44">
 
           <HomeIcon width="40px" height="40px"/>
-          <p className="text-left ml-3 my-4 text-gray font-light text-center text-sm" >
+          <p className="text-left ml-3 my-4 text-rd-gray font-light text-center text-sm" >
             Home Appliance
           </p>
         </div>
+        <div className="flex flex-col justify-start  items-center w-44">
+          <GasStationIcon width="40px" height="40px"/>
+          <p className="text-left ml-3 my-4 text-rd-gray font-light text-center text-sm">Fuel Dispenser</p>
+        </div>
+
+        <div className="flex flex-col justify-start  items-center w-44">
+          <ElectricMeterIcon width="40px" height="40px"/>
+          <p className="text-left ml-3 my-4 text-rd-gray font-light text-center text-sm ">
+            Electric Meter
+          </p>
+        </div>
+        
         <div className="flex flex-col justify-start items-center w-44">
 
         <CarIcon width="40px" height="40px"/>
-         <p className="text-left ml-3 my-4 text-gray font-light text-center text-sm">
+         <p className="text-left ml-3 my-4 text-rd-gray font-light text-center text-sm">
             Automotive
           </p>
         </div >
         <div className="flex flex-col justify-start  items-center w-44">
           <ElevatorIcon width="40px" height="40px"/>
-          <p className="text-left ml-3 my-4 text-gray font-light text-center text-sm">Elevator</p>
+          <p className="text-left ml-3 my-4 text-rd-gray font-light text-center text-sm">Elevator</p>
         </div>
-        <div className="flex flex-col justify-start  items-center w-44">
-          <GasStationIcon width="40px" height="40px"/>
-          <p className="text-left ml-3 my-4 text-gray font-light text-center text-sm">Fuel Dispenser</p>
-        </div>
-        <div className="flex flex-col justify-start  items-center w-44">
-          <ElectricMeterIcon width="40px" height="40px"/>
-          <p className="text-left ml-3 my-4 text-gray font-light text-center text-sm ">
-            Electric Meter
-          </p>
-        </div>
+        
+
         <div className="flex flex-col justify-start  items-center w-44">
           <MedicalIcon width="40px" height="40px"/>
-          <p className="text-left ml-3 my-4 text-gray font-light text-center text-sm ">
+          <p className="text-left ml-3 my-4 text-rd-gray font-light text-center text-sm ">
             Medical
           </p>
         </div>
         
         <div className="flex flex-col justify-start  items-center w-44">
           <ElectronicIcon width="40px" height="40px"/>
-          <p className="text-left ml-3 my-4 text-gray font-light text-center text-sm ">
+          <p className="text-left ml-3 my-4 text-rd-gray font-light text-center text-sm ">
             Electronics
           </p>
         </div>
         <div className="flex flex-col justify-start  items-center w-44">
           <WatchIcon width="40px" height="40px"/>
-          <p className="text-left ml-3 my-4 text-gray font-light text-center text-sm ">
+          <p className="text-left ml-3 my-4 text-rd-gray font-light text-center text-sm ">
             Watches
           </p>
         </div>
-        <div className="flex flex-col justify-start  items-center w-44">
+        <div className="hidden md:flex flex-col justify-start  items-center w-44">
           <SecurityIcon width="40px" height="40px"/>
-          <p className="text-left ml-3 my-4 text-gray font-light text-center text-sm ">
+          <p className="text-left ml-3 my-4 text-rd-gray font-light text-center text-sm ">
             Security System
           </p>
         </div>
         <div className="flex flex-col justify-start  items-center w-44">
           <IndustrialIcon width="40px" height="40px"/>
-          <p className="text-left ml-3 my-4 text-gray font-light text-center text-sm ">
+          <p className="text-left ml-3 my-4 text-rd-gray font-light text-center text-sm ">
             Industrial
           </p>
         </div>

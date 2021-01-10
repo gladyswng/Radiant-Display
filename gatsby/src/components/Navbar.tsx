@@ -11,7 +11,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({}) => {
     const [isMenuOpen, setMenuOpen] = useState(false)
     return (
-       <nav className="flex items-center justify-between flex-wrap bg-white p-2 border-b border-gray">
+       <nav className="flex items-center justify-between flex-wrap bg-white p-2 border-b border-rd-gray">
           <div className="flex items-center flex-shrink-0 mr-6">
             <Logo width="40px" height="40px" />
             <LogoName width="130px" height="40px" className="ml-4" />
@@ -24,8 +24,8 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
               onClick={() => {
                 setMenuOpen(isMenuOpen => !isMenuOpen)
               }}
-              className="flex items-center px-3 py-2  hover:text-yellow 
-              focus:outline-none focus:ring focus:border-yellow
+              className="flex items-center px-3 py-2  hover:text-rd-yellow 
+              focus:outline-none focus:ring focus:border-rd-yellow
               "
             >
               <svg
@@ -39,38 +39,40 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
             </button>
           </div>
           <div
-            className={`w-full ${
+            className={`w-full  ${
               isMenuOpen ? "block" : "hidden"
-            } md:block flex-grow md:flex md:items-center md:w-auto text-center md:text-left`}
+            } md:block flex-grow md:flex md:items-center md:w-auto text-center md:text-left `}
           >
-            <div className="text-m md:flex-grow">
+            <div className="text-m md:flex-grow " onClick={() => {
+                setMenuOpen(isMenuOpen => !isMenuOpen)
+              }}>
               <Link
                 to="/"
-                className="block mt-4 md:inline-block md:mt-0  hover:text-yellow mr-4 text-sm lg:text-base lg:text-base text-yellow"
+                className="block mt-4 md:inline-block md:mt-0  hover:text-rd-yellow mr-4 text-sm lg:text-base lg:text-base text-rd-yellow"
               >
                 HOME
               </Link>
               <Link
                 to="/about"
-                className="block mt-4 md:inline-block md:mt-0 hover:text-yellow mr-4 text-sm lg:text-base"
+                className="block mt-4 md:inline-block md:mt-0 hover:text-rd-yellow mr-4 text-sm lg:text-base"
               >
                 ABOUT
               </Link>
               <Link
-                to="/"
-                className="block mt-4 md:inline-block md:mt-0 hover:text-yellow mr-4 text-sm lg:text-base"
+                to="/category/stn-lcd"
+                className="block mt-4 md:inline-block md:mt-0 hover:text-rd-yellow mr-4 text-sm lg:text-base"
               >
                 PRODUCTS
               </Link>
               <Link
                 to="/FAQ"
-                className="block mt-4 md:inline-block md:mt-0 hover:text-yellow mr-4 text-sm lg:text-base"
+                className="block mt-4 md:inline-block md:mt-0 hover:text-rd-yellow mr-4 text-sm lg:text-base"
               >
                 FAQ
               </Link>
               <Link
                 to="/contact"
-                className="block mt-4 md:inline-block md:mt-0 hover:text-yellow mr-4 text-sm lg:text-base"
+                className="block mt-4 md:inline-block md:mt-0 hover:text-rd-yellow mr-4 text-sm lg:text-base"
               >
                 CONTACT US
               </Link>

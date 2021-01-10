@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import Img, { FluidObject } from 'gatsby-image'
-import AboutNavbar from '../components/AboutNavbar'
+import SubNavbar from '../components/SubNavbar'
 
 interface productionProps {
   data: {
@@ -31,9 +31,9 @@ const production: React.FC<productionProps> = ({data}) => {
   
   //  console.log(production1)
     return (
-      <AboutNavbar>
-        <h1 className="text-darkGray text-4xl font-bold my-6 text-center">PRODUCTION</h1>
-        <p className="text-center text-darkGray font-light w-11/12 mb-12">Between 2011 & 2013, our company established two automatic STN production lines. With OUR own design team & R &D dept. & a full trained we tailor made products according to customer's needs and ensure goods produced in the best environment & the best quality
+      <SubNavbar subNav="about">
+        <h1 className="text-rd-darkGray text-3xl md:text-4xl font-bold my-6 text-center">PRODUCTION</h1>
+        <p className="text-center text-rd-darkGray font-light w-11/12 mb-12">Between 2011 & 2013, our company established two automatic STN production lines. With OUR own design team & R &D dept. & a full trained we tailor made products according to customer's needs and ensure goods produced in the best environment & the best quality
         </p>
       <div className="flex flex-col justify-center items-center text-left pb-20 w-11/12">
      
@@ -51,7 +51,7 @@ const production: React.FC<productionProps> = ({data}) => {
             }
             )}
           </div>
-          {/* <h5 className="font-light text-gray mb-4 text-lg text-left">Cleaning, Rubbing</h5> */}
+          {/* <h5 className="font-light text-rd-gray mb-4 text-lg text-left">Cleaning, Rubbing</h5> */}
        
 
 
@@ -69,7 +69,7 @@ const production: React.FC<productionProps> = ({data}) => {
             }
             )}
           </div> */}
-          {/* <h5 className="font-light text-gray mb-4 text-lg" >Glass Assembly, Curring</h5> */}
+          {/* <h5 className="font-light text-rd-gray mb-4 text-lg" >Glass Assembly, Curring</h5> */}
        
 
           
@@ -87,7 +87,7 @@ const production: React.FC<productionProps> = ({data}) => {
             }
             )}
           </div>
-          <h5 className="font-light text-gray mb-4 text-lg">Scribing, LC-injection, End-Sealing</h5>
+          <h5 className="font-light text-rd-gray mb-4 text-lg">Scribing, LC-injection, End-Sealing</h5>
 
 
 
@@ -106,12 +106,12 @@ const production: React.FC<productionProps> = ({data}) => {
             }
             )}
           </div>
-          <h5 className="font-light text-gray mb-4 text-lg">Polarize Application, PIN Application, Packing</h5>
+          <h5 className="font-light text-rd-gray mb-4 text-lg">Polarize Application, PIN Application, Packing</h5>
       */}
 
 
       </div>
-      </AboutNavbar>
+      </SubNavbar>
     )
 }
 export default production

@@ -4,12 +4,20 @@
 
 @tailwind utilities;
 
-/* @layer components {
-  .nav-btn {
-    @apply block mt-4 md:inline-block md:mt-0 hover:text-yellow mr-4 text-sm;
-  }
-} */
+/* /* @layer components { */
+.nav-btn {
+  @apply block mt-4  mr-4 text-sm
+}
 
-/* .input-gray {
-  @apply block w-full rounded p-3 text-darkgray font-light text-sm placeholder-gray bg-lightGray;
+.nav-btn:hover {
+  @apply text-yellow
+} 
+
+/* .input-rd-gray {
+  @apply block w-full rounded p-3 text-rd-darkGray font-light text-sm placeholder-rd-gray bg-rd-lightGray;
 } */
+@screen md {
+  .nav-btn {
+    inline-block mt-0
+  }
+}

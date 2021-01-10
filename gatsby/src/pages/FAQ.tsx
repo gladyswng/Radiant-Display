@@ -1,7 +1,7 @@
 import React from 'react'
 import QuestionIcon from '../svg/question.svg'
 import AnswerIcon from '../svg/answer.svg'
-import AboutNavbar from '../components/AboutNavbar'
+import AboutNavbar from '../components/SubNavbar'
 
 interface FAQProps {
 
@@ -27,10 +27,10 @@ const FAQ: React.FC<FAQProps> = ({}) => {
     return (
       <>
       <div className="flex items-center flex-col w-full mb-20">
-        <h1 className="text-darkGray text-4xl font-bold my-6 ">FAQ</h1>
+        <h1 className="text-rd-darkGray text-3xl md:text-4xl font-bold my-6 ">FAQ</h1>
         
 
-        <div  className="w-9/12 flex flex-col divide-y divide-lightGray">
+        <div  className="w-9/12 flex flex-col divide-y divide-rd-lightGray">
           {QAList.map(qa => {
 
             return (
@@ -38,8 +38,8 @@ const FAQ: React.FC<FAQProps> = ({}) => {
 
               <QuestionIcon className="inline-block mr-3"  width="40px" height="40px" fill="#fbc531" style={{ minWidth:"40px" }}/>
               <div>
-                 <span className="inline-block align-top text-darkGray text-lg mb-4">{qa.q}</span>
-                 <span className="align-top text-darkGray font-light inline-block" style={{ maxWidth:"1000px" }}>{qa.a}</span>
+                 <span className="inline-block align-top text-rd-darkGray text-lg mb-4">{qa.q}</span>
+                 <span className="align-top text-rd-darkGray font-light inline-block" style={{ maxWidth:"1000px" }}>{qa.a}</span>
 
               </div>
 
@@ -48,14 +48,14 @@ const FAQ: React.FC<FAQProps> = ({}) => {
           
                   <QuestionIcon className="inline-block mr-3"  width="40px" height="40px" fill="#fbc531" style={{ minWidth:"40px" }}/>
 
-              <span className="inline-block align-top text-darkGray text-lg">{qa.q}</span>
+              <span className="inline-block align-top text-rd-darkGray text-lg">{qa.q}</span>
                 
 
 
               </div>
               <div className="flex mb-6 ml-12">
 
-               <span className="align-top text-darkGray font-light inline-block" style={{ maxWidth:"1000px" }}>{qa.a}</span>
+               <span className="align-top text-rd-darkGray font-light inline-block" style={{ maxWidth:"1000px" }}>{qa.a}</span>
               </div> */}
             </div>
             )

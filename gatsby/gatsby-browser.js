@@ -3,7 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
-import "./src/css/index.css"
+import "./src/css/tailwind-output.css"
 import React from 'react';
 import Layout from './src/components/Layout';
 

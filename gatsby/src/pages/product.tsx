@@ -1,15 +1,31 @@
 import { graphql } from 'gatsby'
-import React from 'react'
+import React, { useState } from 'react'
 import SubNavbar from '../components/SubNavbar'
+import Img, { FluidObject } from 'gatsby-image'  
+import ProductGallery from '../components/ProductGallery'
 
 interface productProps {
-  
+  data: {
+    product: {
+      nodes: {
+        imageGallery: {
+          asset: {
+            fluid: FluidObject 
+          }
+        }[]
+        name: string
+        item: string
+        description: string
+        keywords: string[]
+        
+      }[]
+    }
+  }
 }
 
 const product: React.FC<productProps> = ({ data }) => {
   const product = data.product.nodes[0]
-  const productList = [product, product, product, product, product, product]
-  console.log(productList)
+
 
     return (
       <SubNavbar subNav="products">
@@ -17,10 +33,18 @@ const product: React.FC<productProps> = ({ data }) => {
 
         
           <h1>{product.name} - {product.item}</h1>
-          <div className="overflow-x-auto w-10/12 flex justify-center " style={{ maxHeight: '300px' }} >
+          <div className="grid grid-cols-2 w-10/12 ">
+
+            <ProductGallery gallery={product.imageGallery}/>
+            <div className="m-auto pl-4 text-rd-darkGray">
+              <p>{product.description}</p>
+              <p className="font-bold">Spesification</p>
+              {product.keywords.map(words => <p>{words}</p>)}
+              
+            </div>
 
 
-            <table className="w-9/12 max-w-full text-center text-rd-darkGray relative" >
+            {/* <table className="w-9/12 max-w-full text-center text-rd-darkGray relative" >
               <thead className="">
                 <tr >
                   <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Size</th>
@@ -47,7 +71,7 @@ const product: React.FC<productProps> = ({ data }) => {
                   )
                 })}
               </tbody>
-            </table>
+            </table> */}
           </div>
         {/* </div> */}
 
@@ -62,11 +86,19 @@ query {
     nodes {
       description
       name
+      cover {
+        asset {
+        fixed(width: 140) {
+        ...GatsbySanityImageFixed
+        }
+          
+        }
+      }
       keywords
       imageGallery {
         asset {
-          fixed(width: 140) {
-          ...GatsbySanityImageFixed
+          fluid(maxWidth: 700) {
+          ...GatsbySanityImageFluid
           }
           
         }

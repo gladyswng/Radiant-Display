@@ -10,8 +10,8 @@ export default {
       description: 'Name of the gallery'
     },
     {
-      name: 'imagesGallery',
-      title: 'Images Gallery',
+      name: 'imageGallery',
+      title: 'Image Gallery',
       type: 'array',
       of:[{ type: 'image' }],
       description: 'Images of the gallery'

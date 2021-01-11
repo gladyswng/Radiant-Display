@@ -11,7 +11,18 @@ interface Image {
 } 
 
 interface managementProps {
-
+  data: {
+    managementGallery: {
+    nodes: {
+      name: string
+      imageGallery: {
+        asset: {
+          fluid: FluidObject
+        }
+      }[]
+    }[]
+  }
+  }
 }
 
 const management: React.FC<managementProps> = ({data }) => {
@@ -25,7 +36,7 @@ const management: React.FC<managementProps> = ({data }) => {
           <h1 className="text-rd-darkGray text-3xl md:text-4xl font-bold my-6 text-center">MANAGEMENT</h1>
             <div  className="overflow-x-auto w-full m-auto" style={{minHeight: '400px',  maxWidth: '90%' }}  >
             
-              <Img key={managementGallery.name} fluid={managementGallery.imagesGallery[0].asset.fluid} imgStyle={{ objectFit: 'contain'}} style={{ minWidth:'600px' }} />
+              <Img key={managementGallery.name} fluid={managementGallery.imageGallery[0].asset.fluid} imgStyle={{ objectFit: 'contain'}} style={{ minWidth:'600px' }} />
 
 
             </div>
@@ -40,7 +51,7 @@ export const query = graphql`
     managementGallery: allSanityGallery(filter: {name: {eq: "Management"}}) {
       nodes {
         name
-        imagesGallery {
+        imageGallery {
           asset {
             fluid(maxWidth: 1300) {
               ...GatsbySanityImageFluid

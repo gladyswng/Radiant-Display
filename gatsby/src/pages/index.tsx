@@ -114,7 +114,7 @@ const Index = ({ data }: Props): ReactElement => {
       <div className="w-9/12 text-center mb-10" >
         <h5 className="font-light text-2xl text-rd-yellow">FEATURED CLIENTS</h5>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6 py-6 m-auto">
-          {data.ClientsGallery.nodes[0].imagesGallery.map((image:Image, index: number) => {
+          {data.ClientsGallery.nodes[0].imageGallery.map((image:Image, index: number) => {
             return <Img key={index} fluid={image.asset.fluid} className="m-auto" imgStyle={{ objectFit: 'contain'}} style={{ width:'100px' }}/>
           })}
 
@@ -143,7 +143,7 @@ query {
   ClientsGallery: allSanityGallery(filter: {name: {eq: "Clients"}}) {
     nodes {
       name
-      imagesGallery {
+      imageGallery {
         asset {
           fluid(maxWidth: 200) {
             ...GatsbySanityImageFluid

@@ -7,7 +7,7 @@ interface aboutProps {
   data: {
     AboutGallery: {
       nodes: {
-        imagesGallery: Image[]
+        imageGallery: Image[]
      }[]
     }
   }
@@ -22,7 +22,7 @@ interface Image {
 
 const about: React.FC<aboutProps> = ({ data }) => {
   console.log(data)
-  const gallery = data.AboutGallery.nodes[0].imagesGallery
+  const gallery = data.AboutGallery.nodes[0].imageGallery
     return (
       // <div className="flex items-center flex-col w-full mb-40">
       //   <h2 className="text-rd-darkGray text-4xl font-bold my-6 ">ABOUT</h2>
@@ -122,7 +122,7 @@ query {
   AboutGallery: allSanityGallery(filter: {name: {eq: "About"}}) {
     nodes {
       name
-      imagesGallery {
+      imageGallery {
         asset {
           fluid(maxWidth: 400) {
             ...GatsbySanityImageFluid

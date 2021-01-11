@@ -7,7 +7,7 @@ interface productionProps {
   data: {
     productionGallery: {
       nodes: {
-        imagesGallery: Image[]
+        imageGallery: Image[]
      }[]
     }
   }
@@ -22,7 +22,7 @@ interface Image {
 
 const production: React.FC<productionProps> = ({data}) => {
  
-  const productionGallery = data.productionGallery.nodes[0].imagesGallery
+  const productionGallery = data.productionGallery.nodes[0].imageGallery
   // const production1 = productionGallery.slice(0,3)
   // const production2 = productionGallery.slice(3,6)
   // const production3 = productionGallery.slice(6,9)
@@ -122,7 +122,7 @@ export const query = graphql`
   productionGallery: allSanityGallery(filter: {name: {eq: "Production"}}) {
     nodes {
       name
-      imagesGallery {
+      imageGallery {
         asset {
           fluid(maxWidth: 800) {
             ...GatsbySanityImageFluid

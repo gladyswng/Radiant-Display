@@ -67,8 +67,10 @@ export default {
     }, {
       name: 'displayAddress',
       title: 'Display Address',
+      description: 'Please double check the numbers and make sure every field are of the same length',
       type: 'array',
-      of: [{ type: 'displayAddress' }]
+      of: [{ type: 'string' }],
+      
     }
   ]
 }

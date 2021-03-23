@@ -1,14 +1,14 @@
 import React from 'react'
-import HomeIcon from '../svg/home.svg';
-import CarIcon from '../svg/car.svg';
-import ElevatorIcon from '../svg/elevator.svg'
-import GasStationIcon from '../svg/local_gas_station.svg'
-import ElectricMeterIcon from '../svg/electric_meter.svg'
-import MedicalIcon from '../svg/medical.svg'
-import ElectronicIcon from '../svg/electronic.svg'
-import WatchIcon from '../svg/watch.svg'
-import SecurityIcon from '../svg/security.svg'
-import IndustrialIcon from '../svg/industrial.svg'
+import HomeIcon from '../../svg/home.svg';
+import CarIcon from '../../svg/car.svg';
+import ElevatorIcon from '../../svg/elevator.svg'
+import GasStationIcon from '../../svg/local_gas_station.svg'
+import ElectricMeterIcon from '../../svg/electric_meter.svg'
+import MedicalIcon from '../../svg/medical.svg'
+import ElectronicIcon from '../../svg/electronic.svg'
+import WatchIcon from '../../svg/watch.svg'
+import SecurityIcon from '../../svg/security.svg'
+import IndustrialIcon from '../../svg/industrial.svg'
 
 
 

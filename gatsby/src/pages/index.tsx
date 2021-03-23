@@ -1,9 +1,9 @@
 import React, { ReactElement, useState } from "react"
 import { graphql } from 'gatsby'
-import Categories from "../components/Categories"
+import Categories from "../components/content/Categories"
 import Img, { FluidObject } from 'gatsby-image'
 
-import ProductApplication from "../components/ProductApplication";
+import ProductApplication from "../components/content/ProductApplication";
 
 // import styles from '../css'
 

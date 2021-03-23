@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Img, { FluidObject } from 'gatsby-image'
-import ImageZoom from './ImageZoom'
+import ImageZoom from '../ImageZoom'
 
 
 interface ProductGalleryProps {

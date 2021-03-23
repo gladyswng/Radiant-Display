@@ -10,7 +10,7 @@ import category from './category'
 import pinFunction from './objects/pinFunction'
 import feature from './objects/feature'
 import mechanicalData from './objects/mechanicalData'
-import displayAddress from './objects/displayAddress'
+// import displayAddress from './objects/displayAddress'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -25,7 +25,7 @@ export default createSchema({
     feature,
     pinFunction,
     mechanicalData,
-    displayAddress
+    // displayAddress
     /* Your types here! */
   ])
 })

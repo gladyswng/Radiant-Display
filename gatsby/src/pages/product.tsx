@@ -2,7 +2,10 @@ import { graphql } from 'gatsby'
 import React, { useState } from 'react'
 import SubNavbar from '../components/SubNavbar'
 import Img, { FluidObject } from 'gatsby-image'  
-import ProductGallery from '../components/ProductGallery'
+import ProductGallery from '../components/content/ProductGallery'
+import MechTable from '../components/content/MechTable'
+import PinTable from '../components/content/PinTable'
+import DisplayAddTable from '../components/content/DisplayAddTable'
 
 interface IMechData {
 
@@ -39,10 +42,7 @@ interface productProps {
           symbol: string
           function: string
         }[]
-        displayAddress: {
-          DDRAM1: string
-          DDRAM2: string
-        } []
+        displayAddress: string[]
         imageGallery: {
           asset: {
             fluid: FluidObject 
@@ -59,8 +59,8 @@ interface productProps {
 }
 
 const product: React.FC<productProps> = ({ data }) => {
-  const product = data.product.nodes[0]
   
+  const { name, feature, mechanicalData, interfacePinFunction, displayAddress } = data.product.nodes[0]
   const toTitleCase = (phrase: string) => {
     const str =  phrase
     .replace(/([a-z])([A-Z])/g, '$1 $2')
@@ -79,81 +79,28 @@ const product: React.FC<productProps> = ({ data }) => {
 
             {/* <ProductGallery gallery={product.imageGallery}/> */}
             <div className="m-auto text-rd-darkGray">
-              <h2 className="text-2xl md:text-3xl text-rd-yellow">{product.name}</h2>
+              <h2 className="text-2xl md:text-3xl text-rd-yellow">{name}</h2>
              
               <p className="font-bold">Feature</p>
               {/* if display, insert unit */}
-              {Object.entries(product.feature).map(([ key, data ], i) => <p key={i} className=" text-rd-darkGray text-sm"><strong>{toTitleCase(key) } :</strong>&nbsp;&nbsp; {data}</p>)}
+              {Object.entries(feature).map(([ key, data ], i) => <p key={i} className=" text-rd-darkGray text-sm"><strong>{toTitleCase(key) } :</strong>&nbsp;&nbsp; {data}</p>)}
               
             </div>
           </div>
+          <div className="text-rd-darkGray text-left w-10/12">
+            <h4 className="pt-6 pb-2 font-light text-rd-yellow text-2xl">Mechanical Data</h4>
+            <MechTable mechanicalData={mechanicalData}/>
+            <h4 className="pt-6 pb-2 font-light text-rd-yellow text-2xl">Interface Pin Function</h4>
+            <PinTable pinFunction={interfacePinFunction}/>
+            <h4 className="pt-6 pb-2 font-light text-rd-yellow text-2xl">Display Address</h4>
+            {displayAddress.length > 0 && <DisplayAddTable displayAddress={displayAddress}/>}
+              <h3 className="font-light text-rd-yellow text-2xl">Dimensional Drawing</h3>
+              {/* <div className="w-10/12">
 
-          <table className="w-10/12 text-center text-rd-darkGray table-auto" >
-              <thead className="">
-                <tr>
-                  <th className="font-normal p-2 bg-rd-lightGray text-left">Item</th>
-                  <th className="font-normal p-2 bg-rd-lightGray">Dimension</th>
-                  <th className="font-normal p-2 bg-rd-lightGray">Unit</th>
-                
-                </tr>
-              </thead>
-              <tbody className="">
-                {Object.entries(product.mechanicalData).map(([key, data], i) => (
-                  <tr  key={i}>
-                    <td className="p-2 text-left">{toTitleCase(key) }</td>
-                    <td className="font-light p-2">{data}</td>
-                    <td className="font-light p-2">mm</td>
-                  </tr>
-                ))}
-                    {/* <tr>
-                      
-                      <td className="p-2">Size (diagonal)</td>
-                      <td className="font-light p-2">{product.size}</td>
-                      <td className="font-light p-2">inch</td>
-                    </tr>
-                    <tr>
-                      <td className=" p-2">Acitive Area</td>
-                      <td className="font-light p-2">{product.activeArea}</td>
-                      <td className="font-light p-2">mm</td>
-                    </tr>
-                    <tr>
-                      <td className=" p-2">Viewing Area</td>
-                      <td className="font-light p-2">{product.viewingArea}</td>
-                      <td className="font-light p-2">mm</td>
-                    </tr>
-                    <tr>
-                      <td className="p-2">Outline Dimension</td>
-                      <td className="font-light p-2">{product.outlineDimension}</td>
-                      <td className="font-light p-2">mm</td>
-                    </tr>
-                    <tr>
-                      <td className="p-2">Dots Size</td>
-                      <td className="font-light p-2">{product.dotSize}</td>
-                      <td className="font-light p-2">mm</td>
-                    </tr>
-                    <tr>
-                      <td className="p-2">Pixel Pitch</td>
-                      <td className="font-light p-2">{product.pixelPitch}</td>
-                      <td className="font-light p-2">mm</td>
-                    </tr>
-                    <tr>
-                      <td className="p-2">Interface</td>
-                      <td className="font-light p-2">{product.interface}</td>
-                      <td className="font-light p-2"></td>
-                    </tr>
-                    <tr>
-                      <td className="p-2">Display Color</td>
-                      <td className="font-light p-2">{product.displayColor}</td>
-                      <td className="font-light p-2"></td>
-                    </tr> */}
-             
-              </tbody>
-            </table>
-            <h3 className="text-left text-2xl text-rd-yellow font-light w-10/12 py-8">Dimensional Drawing</h3>
-            {/* <div className="w-10/12">
+                <Img fluid={product.dimensionalDrawing.asset.fluid}/>
+              </div> */}
 
-              <Img fluid={product.dimensionalDrawing.asset.fluid}/>
-            </div> */}
+          </div>
 
       </SubNavbar>
     )
@@ -184,10 +131,7 @@ query {
         driverIC
       }
       name
-      displayAddress {
-        DDRAM1
-        DDRAM2
-      }
+      displayAddress 
       interfacePinFunction {
         pinNumber
         symbol

@@ -1,7 +1,7 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react'
 import Img, { FixedObject } from 'gatsby-image'
-import product from '../pages/product';
+import product from '../../pages/product';
 
 interface CategoriesProps {
   products: {

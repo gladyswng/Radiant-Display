@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Img, { FluidObject } from 'gatsby-image'
+import Modal from './Modal'
 
 // import BackgroundImage from 'gatsby-background-image'
 
@@ -17,13 +18,14 @@ const ImageZoom: React.FC<ImageZoomProps> = ({currentImage}) => {
 
   const [ backgroundImage, setBackgroundImage ] = useState({
     backgroundImage: `url(${currentImage.asset.fluid.src})`,
+    backgroundRepeat: 'no-repeat',
     backgroundPosition: '0% 0%'
   })
   // const [ zoom, setZoom ] = useState(true)
   // const [ imageStyle, setImageStyle ] = useState({transform: 'scale(1.0)', transformOrigin: 'none'})
   
   useEffect(() => {
-    setBackgroundImage({backgroundImage: `url(${currentImage.asset.fluid.src})`,
+    setBackgroundImage({backgroundImage: `url(${currentImage.asset.fluid.src})`, backgroundRepeat: 'no-repeat',
     backgroundPosition: '0% 0%'})
   }, [currentImage])
 
@@ -40,7 +42,6 @@ const ImageZoom: React.FC<ImageZoomProps> = ({currentImage}) => {
     setBackgroundImage({ ...backgroundImage, backgroundPosition: `${x}% ${y}%` })
   }
 
-  console.log(backgroundImage)
   // console.log(zoom, imageStyle)
   // useEffect(() => {
   //   if (!zoom) {
@@ -56,17 +57,24 @@ const ImageZoom: React.FC<ImageZoomProps> = ({currentImage}) => {
   // }
     return (
       <div className="overflow-hidden">
-        {currentImage && <div className={` cursor-zoom-in overflow-hidden w-full z-10`} onMouseMove={mouseMoveHandler} 
+        {currentImage && <div className={` md:cursor-zoom-in overflow-hidden w-full z-10`} onMouseMove={mouseMoveHandler} 
         // onMouseOut={mouseOutHandler} 
         // onMouseOver={mouseOverHandler} 
-        style={backgroundImage} >
+        style={backgroundImage}>
           {/* ${!!pointerCoords&&pointerCoords[1]} */}
           {/*  transform: `scale(2) translate(-${pointer[1]}px, -${pointer[2]}px)`, transformOrigin: '0px 0px 0px'  */}
           {/* transform: zoom&imageStyle? {imageStyle}: 'scale(1.0)', transformOrigin: '0px 0px 0px'} */}
-        <Img fluid={currentImage.asset.fluid} className="block hover:opacity-0 "/>
+        <Img fluid={currentImage.asset.fluid} className="block md:hover:opacity-0 "/>
        
 
         </div>}
+
+        {/* <Modal>
+          <div className="w-screen">
+            <Img fluid={currentImage.asset.fluid} />
+
+          </div>
+        </Modal> */}
 
 
       </div>

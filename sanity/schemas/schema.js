@@ -7,6 +7,10 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import product from './product'
 import gallery from './gallery'
 import category from './category'
+import pinFunction from './objects/pinFunction'
+import feature from './objects/feature'
+import mechanicalData from './objects/mechanicalData'
+import displayAddress from './objects/displayAddress'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -17,7 +21,11 @@ export default createSchema({
   types: schemaTypes.concat([
     product,
     gallery,
-    category
+    category,
+    feature,
+    pinFunction,
+    mechanicalData,
+    displayAddress
     /* Your types here! */
   ])
 })

@@ -8,6 +8,11 @@ export default {
       title: 'Product Name',
       type: 'string',
       description: 'Name of the product'
+    },{
+      name: 'item',
+      title: 'Product Item',
+      type: 'string',
+      description: 'module number of the product'
     },
     {
       name: 'slug',
@@ -36,80 +41,34 @@ export default {
       of:[{ type: 'image' }],
       
       description: 'Images Gallery of the product'
-    },
+    }, 
     {
       name: 'dimensionalDrawing',
       title: 'Dimensional Drawing',
       type: 'image'
     },
-
     {
-      name: 'description',
-      title: 'Description',
-      type: 'string',
-      description: 'Description of the product'
+      name: 'feature',
+      title: 'Feature',
+      type: 'feature',
+      
     },
     {
-      name: 'keywords',
-      title: 'Keywords',
+      name: 'mechanicalData',
+      title: 'Mechanical Data',
+      type: 'mechanicalData',
+      
+    },
+    { 
+      name: 'interfacePinFunction',
+      title: 'Interface Pin Function',
       type: 'array',
-      of:[{ type: 'string' }],
-      description: 'Keywords of the product'
-    },
-    {
-      name: 'size',
-      title: 'Size',
-      type: 'string'
-    }, 
-    {
-      name: 'resolution',
-      title: 'Resolution',
-      type: 'string'
-    },
-    {
-      name: 'pixel',
-      title: 'Pixel',
-      type: 'string'
-    },
-    {
-      name: 'item',
-      title: 'Item',
-      type: 'string'
-    },
-    {
-      name: 'displayColor',
-      title: 'Display Color',
-      type: 'string'
-    },
-    {
-      name: 'activeArea',
-      title: 'Active Area',
-      type: 'string'
-    },
-    {
-      name: 'viewingArea',
-      title: 'Viewing Area',
-      type: 'string'
-    },
-    {
-     name: 'outlineDimension',
-     title: 'Outline Dimension',
-     type: 'string' 
-    },
-    {
-      name: 'dotsSize',
-      title: 'Dots Size',
-      type: 'string'
-    },
-    {
-      name: 'controller',
-      title: 'Controller',
-      type: 'string'
-    },
-    {
-      name: 'interface',
-      title: 'Interface',
-      type: 'string'
+      of:[{ type: 'pinFunction' }]
+    }, {
+      name: 'displayAddress',
+      title: 'Display Address',
+      type: 'array',
+      of: [{ type: 'displayAddress' }]
     }
   ]
 }

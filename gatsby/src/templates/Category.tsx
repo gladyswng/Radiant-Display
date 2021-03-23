@@ -24,11 +24,11 @@ interface CategoryProps {
         displayColor: string
         item: string
         keywords: string[]
-        pixel: string
+        pixelPitch: string
         size: string
         resolution: string
         outlineDimension: string
-        dotsSize: string
+        dotSize: string
         activeArea: string
         controller: string
 
@@ -102,11 +102,11 @@ const Category: React.FC<CategoryProps> = ({data}) => {
                   return (
                     <tr key={index}>
                       <td className="font-light p-2">{product.size}</td>
-                      <td className="font-light p-2">{product.pixel}</td>
+                      <td className="font-light p-2">{product.pixelPitch}</td>
                       <td className="font-light p-2" style={{ whiteSpace: 'nowrap' }}>{product.item}</td>
                       <td className="font-light p-2">{product.activeArea}</td>
                       <td className="font-light p-2">{product.outlineDimension}</td>
-                      <td className="font-light p-2">{product.dotsSize}</td>
+                      <td className="font-light p-2">{product.dotSize}</td>
                       <td className="font-light p-2">{product.controller}</td>
                     </tr>
                   )
@@ -144,9 +144,9 @@ export const query = graphql`
 
     product:allSanityProduct(filter: {slug: {current: {eq: "stn-lcd-panel"}}}) {
     nodes {
-      description
+
       name
-      keywords
+     
       imageGallery {
         asset {
           fixed(width: 140) {
@@ -155,15 +155,7 @@ export const query = graphql`
           
         }
       }
-      outlineDimension
-      activeArea
-      controller
-      pixel
-      resolution
-      size
-      item
-      dotsSize
-      displayColor
+      
     }
     }
   
@@ -184,11 +176,11 @@ export const query = graphql`
 //         }
 //       }
 //       outlineDimension
-//       pixel
+//       pixelPitch
 //       resolution
 //       size
 //       item
-//       dotsSize
+//       dotSize
 //       displayColor
 //       children {
 //         id

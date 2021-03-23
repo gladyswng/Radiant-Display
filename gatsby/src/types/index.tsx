@@ -20,9 +20,9 @@ export interface IProduct {
   activeArea: string
   outlineDimension: string
   controller: string
-  pixel: string
+  pixelPitch: string
   resolution: string
   size: string
-  dotsSize: string
+  dotSize: string
   displayColor: string
 }

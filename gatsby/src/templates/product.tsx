@@ -12,10 +12,10 @@ interface ProductProps {
         activeArea: string
         outlineDimension: string
         controller: string
-        pixel: string
+        pixelPitch: string
         resolution: string
         size: string
-        dotsSize: string
+        dotSize: string
         displayColor: string
         
       }[]
@@ -50,7 +50,7 @@ const Product: React.FC<ProductProps> = ({ data }) => {
               <thead className="">
                 <tr >
                   <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Size</th>
-                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Pixel</th>
+                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Pixel Pitch</th>
                   <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Item</th>
                   <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Active Area</th>
                   <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Outline Dimension</th>
@@ -63,11 +63,11 @@ const Product: React.FC<ProductProps> = ({ data }) => {
                   return (
                     <tr key={index}>
                       <td className="font-light p-2">{product.size}</td>
-                      <td className="font-light p-2">{product.pixel}</td>
+                      <td className="font-light p-2">{product.pixelPitch}</td>
                       <td className="font-light p-2">{product.item}</td>
                       <td className="font-light p-2">{product.activeArea}</td>
                       <td className="font-light p-2">{product.outlineDimension}</td>
-                      <td className="font-light p-2">{product.dotsSize}</td>
+                      <td className="font-light p-2">{product.dotSize}</td>
                       <td className="font-light p-2">{product.controller}</td>
                     </tr>
                   )
@@ -86,9 +86,9 @@ export const query = graphql`
 query {
   product:allSanityProduct(filter: {slug: {current: {eq: "stn-lcd-panel"}}}) {
     nodes {
-      description
+     
       name
-      keywords
+    
       imageGallery {
         asset {
           fixed(width: 140) {
@@ -97,15 +97,7 @@ query {
           
         }
       }
-      activeArea
-      outlineDimension
-      controller
-      pixel
-      resolution
-      size
-      item
-      dotsSize
-      displayColor
+
     }
   }
 

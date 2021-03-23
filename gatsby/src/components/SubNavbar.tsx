@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
-import React from 'react'
-
+import React, { useState } from 'react'
+import ExpandIcon from '../svg/expand.svg'
 interface SubNavbarProps {
   // subNav: {
   //   title: string,
@@ -13,6 +13,8 @@ interface SubNavbarProps {
 }
 
 const SubNavbar: React.FC<SubNavbarProps> = ({ children, subNav }) => {
+
+  const [ subNavOpen, setSubNavOpen ] = useState(false)
 
   const nav = {
     about: {
@@ -69,15 +71,23 @@ const SubNavbar: React.FC<SubNavbarProps> = ({ children, subNav }) => {
     }
 
   }
+  const toggleSubNav = () => {
+    setSubNavOpen(!subNavOpen)
+  }
  
 
     return (
       <div className="flex flex-col md:flex-row md:items-start items-center mb-24">
 
-        <div className="pt-8 md:pl-8 w-40 md:text-left text-center">
-          <h2 className="text-rd-darkGray md:text-xl font-bold md:my-5 " style={{ paddingBottom: '5px' }}>{nav[subNav].title}</h2>
+        <div className="pt-8 md:pl-8 w-44 md:text-left text-center">
+          <div>
+            <h2 className="text-rd-darkGray md:text-xl pb-1.5 font-bold md:my-5 inline-block " >{nav[subNav].title}</h2>
+            <ExpandIcon className="inline-block md:hidden ml-2" fill="#454545" onClick={toggleSubNav} style={{ fill:"#fbc531" }}/>
+
+          </div>
           
-          <div className=" flex flex-col justify-around md:pb-6 text-rd-darkGray font-light md:text-lg ">
+          <div className={`flex flex-col justify-around md:pb-6 text-rd-darkGray font-light md:text-lg h-0 md:h-56 overflow-hidden ${subNavOpen&&'h-48 '} w-min md:flex duration-200 transition-all ease-in-out `}>
+            
             {nav[subNav].links.map(link => {
               return (
               <Link to={link.link} key={link.link} className="block mt-2 md:inline-block hover:text-rd-yellow">{link.title}</Link>

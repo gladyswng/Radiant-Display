@@ -1,6 +1,7 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react'
 import Img, { FixedObject } from 'gatsby-image'
+import product from '../pages/product';
 
 interface CategoriesProps {
   products: {
@@ -15,12 +16,15 @@ interface CategoriesProps {
 }
 
 const Categories: React.FC<CategoriesProps> = ({ products }) => {
-
+  console.log(products)
     return (
       <div className="flex flex-wrap justify-center items-center my-4">
         {/* grid gap-4 grid-cols-3 xl:grid-cols-5 */}
         
           {products.map(product => {
+            if (!product.name || !product.cover || !product.id) {
+              return null
+            }
             return (
               <div key={product.id} className="flex flex-col justify-center items-center p-4 
               " >

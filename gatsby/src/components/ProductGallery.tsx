@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Img, { FluidObject } from 'gatsby-image'
-import Zoom from 'react-medium-image-zoom'
 import ImageZoom from './ImageZoom'
 
 
@@ -15,13 +14,8 @@ interface ProductGalleryProps {
 const ProductGallery: React.FC<ProductGalleryProps> = ({ gallery }) => {
   console.log(gallery)
   const [ currentImage, setCurrentImage ] = useState(gallery[0])
-  const [ pointer, setPointer ] = useState(null)
-  // const [ backgroundImage, setBackgroundImage ] = useState()
-  const [ zoom, setZoom ] = useState(false)
   console.log(currentImage.asset.fluid.src)
-  // useEffect(() => {
-  //   setBackgroundImage(`url(${currentImage})`)
-  // }, [currentImage] )
+
 
 
   // const onImageChange = (image) => setCurrentImage(image)
@@ -31,12 +25,8 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ gallery }) => {
   //   console.log(x,y)
   //   console.log(e.target.getBoundingClientRect())
   //   // setPointer([x, y])
-    
   // }
 
-  // const mouseOverHandler = () => setZoom(true)
-  // const mouseOutHandler = () => setZoom(false)
-  
     return (
 
       <div className="">
@@ -51,10 +41,10 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ gallery }) => {
         </div> */}
         <ImageZoom currentImage={currentImage}/>
 
-        <div className="flex">
+        <div className="flex flex-start">
           {gallery.map(image => {
             return (
-              <div className="w-20 bg-rd-lightGray m-2" onMouseOver={()=> setCurrentImage(image)}>
+              <div className="w-20 bg-rd-lightGray mr-2 my-2" onMouseOver={()=> setCurrentImage(image)}>
 
                   <Img fluid={image.asset.fluid} className="opacity-50 hover:opacity-100" />
 

@@ -23,11 +23,11 @@ interface categoryProps {
         displayColor: string
         item: string
         keywords: string[]
-        pixel: string
+        pixelPitch: string
         size: string
         resolution: string
         outlineDimension: string
-        dotsSize: string
+        dotSize: string
         activeArea: string
         controller: string
 
@@ -74,8 +74,11 @@ const catogory: React.FC<categoryProps> = ({data}) => {
               <p className="text-rd-darkGray font-light">{category.description}</p>
               <br/>
               {category.details.map((detail, index) => {
-                return (
-                <p key={index} className=" text-sm font-light" >&gt; &nbsp;&nbsp;{detail}</p>
+                  // const [ item, words ] = detail.split(":")
+                  return (
+                  
+                    // <p key={Math.random()} className="font-light text-rd-darkGray text-sm">&gt; &nbsp;&nbsp;<strong>{item}: </strong>{detail}</p>
+                    <p key={index} className=" text-sm font-light" >&gt; &nbsp;&nbsp;{detail}</p>
                 )
               })}
 
@@ -102,11 +105,11 @@ const catogory: React.FC<categoryProps> = ({data}) => {
                   return (
                     <tr key={index}>
                       <td className="font-light p-2">{product.size}</td>
-                      <td className="font-light p-2">{product.pixel}</td>
+                      <td className="font-light p-2">{product.pixelPitch}</td>
                       <td className="font-light p-2" style={{ whiteSpace: 'nowrap' }}>{product.item}</td>
                       <td className="font-light p-2">{product.activeArea}</td>
                       <td className="font-light p-2">{product.outlineDimension}</td>
-                      <td className="font-light p-2">{product.dotsSize}</td>
+                      <td className="font-light p-2">{product.dotSize}</td>
                       <td className="font-light p-2">{product.controller}</td>
                     </tr>
                   )
@@ -143,30 +146,58 @@ export const query = graphql`
     }
     }
 
-    product:allSanityProduct(filter: {slug: {current: {eq: "stn-lcd-panel"}}}) {
+    product:allSanityProduct(filter: {slug: {current: {eq: "fstd-lcd-panel"}}}) {
     nodes {
-      description
+ 
       name
-      keywords
+      cover {
+        asset {
+        fixed(width: 140) {
+        ...GatsbySanityImageFixed
+        }
+          
+        }
+      }
+      feature {
+        display
+        lcd
+        driverCondition
+        viewingDirection
+        backlight
+        interface
+        driverIC
+      }
+      name
+      displayAddress {
+        DDRAM1
+        DDRAM2
+      }
+      interfacePinFunction {
+        pinNumber
+        symbol
+        function
+      }
+      mechanicalData {
+        outlineDimension
+        viewingArea
+        dotSize
+        dotPitch
+        characterSize
+      }
+      
+ 
       imageGallery {
         asset {
-          fixed(width: 140) {
-          ...GatsbySanityImageFixed
+          fluid(maxWidth: 700) {
+          ...GatsbySanityImageFluid
           }
           
         }
       }
-      outlineDimension
-      activeArea
-      controller
-      pixel
-      resolution
-      size
-      item
-      dotsSize
-      displayColor
+
+     
     }
-    }
+  }
   
   }
 `

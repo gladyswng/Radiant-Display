@@ -34,7 +34,9 @@ const about: React.FC<aboutProps> = ({ data }) => {
       //     <Link>CONTRIBUTIONS</Link>
       //   </div>
       <SubNavbar subNav="about">
-    
+
+        <div>
+
           <h1 className="text-rd-darkGray text-3xl md:text-4xl font-bold my-6 text-center">WHO WE ARE</h1>
           <p className="text-center font-light text-rd-darkGray mb-12 w-11/12" >Radiant Electronics Limited is a Hong Kong based company display panels. ialized in LCD Established in 1991, Starting from watch business, the company started its first LCD assembling line in 2006 and since then focusing its main business into LCD industry. <br/><br/>From its humble beginning, it has now expanded into two factories in Shen zhen & Hui zhou. Together with factiories and dormítory buildings, the company occupies more than 20000 square meters, with more than 600 workers, achieving an annual output of over 1,000,000 sets of LCD screens. </p>
 
@@ -100,6 +102,8 @@ const about: React.FC<aboutProps> = ({ data }) => {
 
 
           </div>
+        </div>
+    
         {/* <div className="mt-20">
           <h2 className="text-rd-gray font-light text-3xl text-center mb-8">FIND OUT MORE</h2>
           <div>

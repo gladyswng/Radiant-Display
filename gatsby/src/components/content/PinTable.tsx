@@ -11,7 +11,7 @@ interface PinTableProps {
 
 const PinTable: React.FC<PinTableProps> = ({ pinFunction }) => {
   return (
-    <table className="w-10/12 text-left text-rd-darkGray table-auto" >
+    <table className="text-left text-rd-darkGray table-auto w-full" >
       <thead className="">
         <tr>
           <th className="font-normal p-2 bg-rd-lightGray">Pin No.</th>
@@ -22,9 +22,9 @@ const PinTable: React.FC<PinTableProps> = ({ pinFunction }) => {
       <tbody className="">
         {pinFunction.map((pin, i) => (
           <tr  key={i}>
-            <td className="p-2 text-left">{pin.pinNumber}</td>
-            <td className="font-light p-2">{pin.symbol}</td>
-            <td className="font-light p-2">{pin.function}</td>
+            <td className="text-left table-cell">{pin.pinNumber}</td>
+            <td className="font-light table-cell">{pin.symbol}</td>
+            <td className="font-light table-cell">{pin.function}</td>
           </tr>
         ))}             
       </tbody>

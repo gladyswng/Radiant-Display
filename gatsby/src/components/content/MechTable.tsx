@@ -14,7 +14,7 @@ interface MechTableProps {
 const MechTable: React.FC<MechTableProps> = ({ mechanicalData }) => {
 
   return (
-    <table className="w-10/12 text-left text-rd-darkGray table-auto" >
+    <table className="text-left text-rd-darkGray table-auto w-full" >
       <thead className="">
         <tr>
           <th className="font-normal p-2 bg-rd-lightGray text-left">Item</th>
@@ -25,9 +25,9 @@ const MechTable: React.FC<MechTableProps> = ({ mechanicalData }) => {
       <tbody className="">
         {Object.entries(mechanicalData).map(([key, data], i) => (
           <tr  key={i}>
-            <td className="p-2 text-left">{toTitleCase(key) }</td>
-            <td className="font-light p-2">{data}</td>
-            <td className="font-light p-2">mm</td>
+            <td className="text-left table-cell">{toTitleCase(key) }</td>
+            <td className="font-light table-cell">{data}</td>
+            <td className="font-light table-cell">mm</td>
           </tr>
         ))}             
       </tbody>

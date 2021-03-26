@@ -7,9 +7,9 @@ interface DisplayAddTableProps {
 const DisplayAddTable: React.FC<DisplayAddTableProps> = ({ displayAddress }) => {
   
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-scroll w-full">
 
-    <table className="w-10/12 text-left text-rd-darkGray table-auto" >
+    <table className="w-full text-left text-rd-darkGray table-auto" >
       <thead className="">
         <tr>
           <th className="font-normal p-2 bg-rd-lightGray text-left">Character Address</th>
@@ -25,7 +25,7 @@ const DisplayAddTable: React.FC<DisplayAddTableProps> = ({ displayAddress }) => 
           const numberList = add.replace(/\s/g, '').split(',')
           return (
             <tr key={i}>
-              <th className="font-normal p-2">DDRAM{i+1}</th>
+              <th className="font-normal p-2">DDRAM</th>
               {numberList.map(num => (
                 <td key={num} className="font-light text-center py-2 px-2">{num}</td>
               ))}

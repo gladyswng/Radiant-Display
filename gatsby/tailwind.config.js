@@ -35,7 +35,8 @@ module.exports = {
       '200': '2'
     },
     cursor: {
-      'zoom-in': 'zoom-in'
+      'zoom-in': 'zoom-in',
+      'pointer': 'pointer'
     },
     extend: {
   

@@ -25,7 +25,7 @@ const Index = ({ data }: Props): ReactElement => {
   return (
     <div className="flex flex-col items-center">
 
-      <div className="flex justify-center bg-auto bg-center bg-cover w-screen " style={{
+      <div className="flex justify-center bg-auto bg-center bg-cover w-full overflow-x-hidden" style={{
         height: '400px',
         backgroundImage: `
         linear-gradient(
@@ -61,7 +61,7 @@ const Index = ({ data }: Props): ReactElement => {
         {/* <p className="text-rd-gray font-light my-4">we also provide comprehensive customize service where you can customize according to your need, with any size, color or type, to provide the best product you want.</p> */}
       </div>
 
-      <div className="md:flex justify-center bg-auto bg-center bg-cover w-screen hidden"
+      <div className="md:flex justify-center bg-auto bg-center bg-cover w-full hidden"
       
       style={{
         height:'120px',

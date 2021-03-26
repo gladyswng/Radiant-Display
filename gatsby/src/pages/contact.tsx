@@ -35,7 +35,7 @@ const contact: React.FC<contactProps> = ({}) => {
 
   ]
     return (
-      <div className="flex items-center flex-col w-screen mb-40">
+      <div className="flex items-center flex-col w-full mb-40">
         <h1 className="text-rd-darkGray text-3xl md:text-4xl font-bold my-6">CONTACT US</h1>
 
         <div className="md:grid md:grid-cols-3 md:gap-16 px-9 w-9/12">

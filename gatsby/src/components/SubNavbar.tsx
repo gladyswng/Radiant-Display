@@ -96,10 +96,10 @@ const SubNavbar: React.FC<SubNavbarProps> = ({ children, subNav }) => {
 
           </div>
         </div>
-        <div className="w-full flex flex-col items-center">
+        {/* <div className="flex flex-col items-center max-w-full"> */}
         {children}
 
-        </div>
+        {/* </div> */}
         
       </div>
       // <div className="flex items-center flex-col w-full mb-20">

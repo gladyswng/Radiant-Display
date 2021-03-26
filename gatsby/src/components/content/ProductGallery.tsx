@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Img, { FluidObject } from 'gatsby-image'
-import ImageZoom from '../ImageZoom'
+
+import GalleryModal from './GalleryModal'
+import useClickOutside from '../../hooks/useClickOutside'
 
 
 interface ProductGalleryProps {
@@ -13,11 +15,14 @@ interface ProductGalleryProps {
 
 const ProductGallery: React.FC<ProductGalleryProps> = ({ gallery }) => {
   console.log(gallery)
+  
   const [ currentImage, setCurrentImage ] = useState(gallery[0])
-  console.log(currentImage.asset.fluid.src)
+  const [ modalShow, setModalShow ] = useState(false)
 
-
-
+  const modalToggleHandler = () => {
+    setModalShow(!modalShow)
+  }
+  console.log(modalShow)
   // const onImageChange = (image) => setCurrentImage(image)
   // const mouseMoveHandler = (e: any)=> {
   //   const x = e.nativeEvent.offsetX
@@ -30,23 +35,23 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ gallery }) => {
     return (
 
       <div className="">
-        {/* <div className="overflow-hidden">
-          <div className={` cursor-zoom-in overflow-hidden`} onMouseMove={mouseMoveHandler} onMouseOut={mouseOutHandler} onMouseOver={mouseOverHandler} style={{ transform: zoom? `scale(2) translate(-40px, -40px)`: 'scale(1.0)', transformOrigin: '0px 0px 0px'}} > */}
-            {/* ${!!pointerCoords&&pointerCoords[1]} */}
-            {/*  transform: `scale(2) translate(-${pointer[1]}px, -${pointer[2]}px)`, transformOrigin: '0px 0px 0px'  */}
-          {/* <Img fluid={currentImage.asset.fluid} />
+  
+        {/* <div ref={myElementRef}> */}
+          {modalShow && <GalleryModal gallery={gallery} initialIndex={gallery.findIndex(image => image.asset.fluid.src === currentImage.asset.fluid.src)} modalShow={modalShow} closeModal={()=>setModalShow(false)}/>}
 
-          </div>
+        {/* </div> */}
+       
+        <div className="max-w-sm object-cover h-64 " onClick={modalToggleHandler} >
+          <Img fluid={currentImage.asset.fluid} className=" w-full h-full"/>
+          
 
-        </div> */}
-        <ImageZoom currentImage={currentImage}/>
-
+        </div>
         <div className="flex flex-start">
-          {gallery.map(image => {
+          {gallery.map((image, i )=> {
             return (
-              <div className="w-20 bg-rd-lightGray mr-2 my-2" onMouseOver={()=> setCurrentImage(image)}>
+              <div key={i} className="w-20 bg-rd-lightGray mr-2 my-2" onClick={()=> setCurrentImage(image)}>
 
-                  <Img fluid={image.asset.fluid} className="opacity-50 hover:opacity-100" />
+                  <Img fluid={image.asset.fluid} className="opacity-50 hover:opacity-100 w-full h-full" />
 
               </div>
             )

@@ -4,20 +4,52 @@
 
 @tailwind utilities;
 
-.nav-btn {
-  @apply block mt-4  mr-4 text-sm;
+@layer components {
+
+  .nav-btn {
+    @apply block mt-4  mr-4 text-sm;
+  }
+  
+  .nav-btn:hover {
+    @apply text-rd-yellow;
+  }
+  
+  .input-rd-gray {
+    @apply block w-full rounded p-3 text-rd-darkGray font-light text-sm bg-rd-lightGray;
+  }
+
+  .table-cell {
+    @apply p-2 bg-rd-lightGray bg-opacity-25
+  }
 }
 
-.nav-btn:hover {
-  @apply text-rd-yellow;
-}
-
-.input-rd-gray {
-  @apply block w-full rounded p-3 text-rd-darkGray font-light text-sm bg-rd-lightGray;
-}
+ 
 
 @screen md {
   .nav-btn {
     @apply inline-block mt-0;
   }
+}
+
+@layer base {
+  html,body {
+    @applay w-full m-0 p-0 overflow-x-hidden
+  }
+}
+
+@layer utilities {
+    @variants responsive {
+        .text-shadow {
+          text-shadow: 2px 2px 4px black;
+        }
+        .text-shadow-md {
+          text-shadow: 4px 4px 8px black;
+        }
+        .text-shadow-lg {
+          text-shadow: 15px 15px 30px black;
+        }
+        .text-shadow-none {
+          text-shadow: none;
+        }
+    } 
 }

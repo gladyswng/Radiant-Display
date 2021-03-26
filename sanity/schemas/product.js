@@ -64,10 +64,17 @@ export default {
       title: 'Interface Pin Function',
       type: 'array',
       of:[{ type: 'pinFunction' }]
-    }, {
+    }, 
+    { 
+      name: 'electricalChar',
+      title: 'Electrical Characteristics',
+      type: 'array',
+      of:[{ type: 'electricalChar' }]
+    }, 
+    {
       name: 'displayAddress',
       title: 'Display Address',
-      description: 'Please double check the numbers and make sure every field are of the same length',
+      description: 'Please separate numbers with comma, double check the numbers and make sure every field are of the same length',
       type: 'array',
       of: [{ type: 'string' }],
       

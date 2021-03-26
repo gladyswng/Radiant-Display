@@ -14,6 +14,11 @@ export default {
       type: 'string'
     },
     {
+      name: 'condition',
+      title: 'Contdition',
+      type: 'string'
+    },
+    {
       name: 'min',
       title: 'Min',
       type: 'string'

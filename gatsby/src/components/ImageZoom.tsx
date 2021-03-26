@@ -57,7 +57,7 @@ const ImageZoom: React.FC<ImageZoomProps> = ({currentImage}) => {
   // }
     return (
       <div className="overflow-hidden">
-        {currentImage && <div className={` md:cursor-zoom-in overflow-hidden w-full z-10`} onMouseMove={mouseMoveHandler} 
+        {currentImage && <div className={` md:cursor-zoom-in overflow-hidden w-8/12 z-10`} onMouseMove={mouseMoveHandler} 
         // onMouseOut={mouseOutHandler} 
         // onMouseOver={mouseOverHandler} 
         style={backgroundImage}>

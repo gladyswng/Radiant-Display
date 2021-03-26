@@ -13,7 +13,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({}) => {
     return (
-      <div className="bg-rd-lightGray w-screen p-4 md:p-10 flex flex-col md:flex-row justify-between">
+      <div className="bg-rd-lightGray w-full p-4 md:p-10 flex flex-col md:flex-row justify-between">
         <div className="p-4 md:w-4/12" >
 
           <div className="mb-4 flex">

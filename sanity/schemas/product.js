@@ -74,7 +74,7 @@ export default {
     {
       name: 'displayAddress',
       title: 'Display Address',
-      description: 'Please separate numbers with comma, double check the numbers and make sure every field are of the same length',
+      description: 'Please separate numbers with comma, double check the numbers and make sure every field are of the same length, and please do not start a new field whithout number',
       type: 'array',
       of: [{ type: 'string' }],
       

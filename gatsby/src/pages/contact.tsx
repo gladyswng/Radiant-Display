@@ -54,7 +54,7 @@ const contact: React.FC<contactProps> = ({}) => {
             </div>
 
           </div>
-          {companyList.map(company =><ContactCard company={company}/>
+          {companyList.map(company =><ContactCard key={company.name} company={company}/>
           )}
           
         </div>

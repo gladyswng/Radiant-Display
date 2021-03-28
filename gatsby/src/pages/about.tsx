@@ -35,13 +35,13 @@ const about: React.FC<aboutProps> = ({ data }) => {
       //   </div>
       <SubNavbar subNav="about">
 
-        <div>
+        <div className="w-11/12 md:w-9/12 m-auto">
 
           <h1 className="text-rd-darkGray text-3xl md:text-4xl font-bold my-6 text-center">WHO WE ARE</h1>
-          <p className="text-center font-light text-rd-darkGray mb-12 w-11/12" >Radiant Electronics Limited is a Hong Kong based company display panels. ialized in LCD Established in 1991, Starting from watch business, the company started its first LCD assembling line in 2006 and since then focusing its main business into LCD industry. <br/><br/>From its humble beginning, it has now expanded into two factories in Shen zhen & Hui zhou. Together with factiories and dormítory buildings, the company occupies more than 20000 square meters, with more than 600 workers, achieving an annual output of over 1,000,000 sets of LCD screens. </p>
+          <p className="text-center font-light text-rd-darkGray mb-12 " >Radiant Electronics Limited is a Hong Kong based company display panels. ialized in LCD Established in 1991, Starting from watch business, the company started its first LCD assembling line in 2006 and since then focusing its main business into LCD industry. <br/><br/>From its humble beginning, it has now expanded into two factories in Shen zhen & Hui zhou. Together with factiories and dormítory buildings, the company occupies more than 20000 square meters, with more than 600 workers, achieving an annual output of over 1,000,000 sets of LCD screens. </p>
 
                          
-          <div className="py-4 w-11/12 flex flex-col items-center justify-center">
+          <div className="py-4  flex flex-col items-center justify-center">
 
             <div className="p-4 w-full flex md:items-start items-center flex-col md:flex-row">
               <div style={{width: "320px", maxWidth:"100%"}}>

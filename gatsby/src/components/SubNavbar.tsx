@@ -37,7 +37,7 @@ const SubNavbar: React.FC<SubNavbarProps> = ({ children, subNav }) => {
           link: '/management'
         },
         {
-          title: 'SOCIAL RESPONSIBILITY',
+          title: 'CSR',
           link: '/CSR'
         },
 
@@ -86,11 +86,11 @@ const SubNavbar: React.FC<SubNavbarProps> = ({ children, subNav }) => {
 
           </div>
           
-          <div className={`flex flex-col justify-around md:pb-6 text-rd-darkGray font-light md:text-lg h-0 md:h-56 overflow-hidden ${subNavOpen&&'h-48 '} w-min md:flex duration-200 transition-all ease-in-out `}>
+          <div className={`flex flex-col justify-around m-auto md:ml-0 md:pb-6 text-rd-darkGray font-light md:text-lg h-0 md:h-56 overflow-hidden ${subNavOpen&&'h-56 '} w-min md:flex duration-200 transition-all ease-in-out `}>
             
             {nav[subNav].links.map(link => {
               return (
-              <Link to={link.link} key={link.link} className="block mt-2 md:inline-block hover:text-rd-yellow">{link.title}</Link>
+              <Link to={link.link} key={link.link} className="block mt-2 md:inline-block hover:text-rd-yellow whitespace-nowrap">{link.title}</Link>
               )
             })}
 

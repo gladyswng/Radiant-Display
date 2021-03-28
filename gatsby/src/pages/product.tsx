@@ -82,11 +82,11 @@ const product: React.FC<productProps> = ({ data }) => {
       <SubNavbar subNav="products">
         <div className="w-11/12 md:w-8/12 m-auto">
 
-          <div className="lg:flex items-end justify-between">
+          <div className="lg:flex items-end justify-between pb-6 border-rd-yellow">
             {/* md:grid lg:grid-cols-2  md:gap-4 lg:gap-20 items-end */}
 
             <ProductGallery gallery={imageGallery}/>
-            <div className="text-rd-darkGray text-sm md:text-base leading-6 font-normal">
+            <div className="text-rd-darkGray text-sm md:text-base leading-6 font-normal ">
               <h2 className="text-2xl md:text-3xl text-rd-yellow mb-6">{name}</h2>
              
               <p className="font-bold text-xl mb-1">Feature</p>

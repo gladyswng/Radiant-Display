@@ -65,17 +65,17 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ gallery, initialIndex, moda
     <div onClick={closeModal}>
 
       <Modal >
-        <div className="bg-rd-white p-2  p-6 pb-4 flex relative rounded-lg" onClick={contentClickHandler}>
-          <div className="object-cover w-full h-full  flex-grow relative">
+        <div className="bg-rd-white p-2 flex relative" onClick={contentClickHandler}>
+          <div className="object-cover w-full h-full  flex-grow relative ">
               <Img fluid={gallery[currentIndex].asset.fluid} className=""/>
           
           </div>
-          <div className="absolute top-1/2 -left-10 z-10 hover:text-rd-gray focus:text-rd-gray cursor-pointer" onClick={imageBackHandler}>
+          <div className="absolute top-1/2 left-0 md:-left-10 z-10 hover:text-rd-gray focus:text-rd-gray cursor-pointer" onClick={imageBackHandler}>
             <ArrowBackIcon className="fill-current w-12 "/>
 
           </div>
     
-          <div className="absolute top-1/2 -right-10 z-10 cursor-pointer hover:text-rd-gray focus:text-rd-gray" onClick={imageNextHandler}>
+          <div className="absolute top-1/2 right-0 md:-right-10 z-10 cursor-pointer hover:text-rd-gray focus:text-rd-gray" onClick={imageNextHandler}>
             <ArrowForwardIcon className="fill-current w-12 "/>
 
           </div>

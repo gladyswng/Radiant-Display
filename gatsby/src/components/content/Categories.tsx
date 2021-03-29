@@ -5,7 +5,7 @@ import product from '../../pages/product';
 
 interface CategoriesProps {
   products: {
-    cover: {
+    image: {
       asset: {
         fixed: FixedObject | FixedObject[]
       }
@@ -22,7 +22,7 @@ const Categories: React.FC<CategoriesProps> = ({ products }) => {
         {/* grid gap-4 grid-cols-3 xl:grid-cols-5 */}
         
           {products.map(product => {
-            if (!product.name || !product.cover || !product.id) {
+            if (!product.name || !product.image || !product.id) {
               return null
             }
             return (
@@ -37,7 +37,7 @@ const Categories: React.FC<CategoriesProps> = ({ products }) => {
                 className="transform hover:scale-105"
                 imgStyle={{ objectFit: "contain" }}
                 style={{ height: 140 }}
-                fixed={product.cover.asset.fixed}/>
+                fixed={product.image.asset.fixed}/>
 
 
               </div>

@@ -1,105 +1,196 @@
 import { graphql } from 'gatsby'
-import React from 'react'
+import React, { useState } from 'react'
 import SubNavbar from '../components/SubNavbar'
-import Img, { FluidObject } from 'gatsby-image'
+import Img, { FluidObject } from 'gatsby-image'  
+import ProductGallery from '../components/content/ProductGallery'
+import MechTable from '../components/content/MechTable'
+import PinTable from '../components/content/PinTable'
+import DisplayAddTable from '../components/content/DisplayAddTable'
+import ElectricalTable from '../components/content/ElectricalTable'
 
-interface ProductProps {
+interface productProps {
   data: {
     product: {
       nodes: {
         name: string
-        item: string
-        activeArea: string
-        outlineDimension: string
-        controller: string
-        pixelPitch: string
-        resolution: string
-        size: string
-        dotSize: string
-        displayColor: string
-        
-      }[]
-    }
-    category: {
+        feature: {
+          display: string
+          driverCondition: string
+          driverIC: string
+          interface: string
+          lcd: string
+          viewingDirection: string
+        }
+        mechanicalData: {
+          characterSize: string
+          dotPitch: string
+          dotSize: string
+          outlineDimension: string
+          viewingArea: string
+        }
+        interfacePinFunction: {
+          pinNumber: string
+          symbol: string
+          function: string
+        }[]
+        electricalChar: {
+          item: string
+          symbol: string
+          condition: string
+          min: string
+          type: string
+          max: string
+          unit: string
+        }[]
+        displayAddress: string[]
+        cover: {
+          asset: {
+            fluid: FluidObject
+          }
+        }
+        imageGallery: {
+          asset: {
+            fluid: FluidObject 
+          }
+        }[]
 
+        dimensionalDrawing?: {
+          asset: {
+            fluid: FluidObject 
+          }
+        }
+      }[]
     }
   }
 }
 
-interface Image {
-  asset: {
-    fluid:  FluidObject
+const product: React.FC<productProps> = ({ data }) => {
+  console.log(data.product.nodes[0])
+  const { name, feature, mechanicalData, interfacePinFunction, displayAddress, electricalChar, imageGallery } = data.product.nodes[0]
+  const toTitleCase = (phrase: string) => {
+    const str =  phrase
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    return str[0].toUpperCase() + str.substring(1)
   }
-} 
 
-const Product: React.FC<ProductProps> = ({ data }) => {
-  const product = data.product.nodes[0]
-  const productList = [product, product, product, product, product, product]
-  console.log(productList)
+  // const newList = mechanicalData.map((key: string )=> mechanicalData[key])
+  // const ekstraMechanicalData = mechanicalData.forEach(data => {
+  //   if (data[0] === 'dotSize')
+  // })
 
     return (
       <SubNavbar subNav="products">
-        {/* <div className=""> */}
+        <div className="w-11/12 md:w-8/12 m-auto">
 
-        
-          <h1>{product.name} - {product.item}</h1>
-          <div className="overflow-x-auto w-10/12 flex justify-center " style={{ maxHeight: '300px' }} >
+          <div className="lg:flex items-end justify-between pb-6 border-rd-yellow">
+            {/* md:grid lg:grid-cols-2  md:gap-4 lg:gap-20 items-end */}
 
-
-            <table className="w-9/12 max-w-full text-center text-rd-darkGray relative" >
-              <thead className="">
-                <tr >
-                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Size</th>
-                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Pixel Pitch</th>
-                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Item</th>
-                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Active Area</th>
-                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Outline Dimension</th>
-                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Dots Size</th>
-                  <th className="font-normal p-2 sticky top-0 bg-rd-lightGray">Controller</th>
-                </tr>
-              </thead>
-              <tbody className="overflow-y-scroll">
-                {productList.map((product, index) => {
-                  return (
-                    <tr key={index}>
-                      <td className="font-light p-2">{product.size}</td>
-                      <td className="font-light p-2">{product.pixelPitch}</td>
-                      <td className="font-light p-2">{product.item}</td>
-                      <td className="font-light p-2">{product.activeArea}</td>
-                      <td className="font-light p-2">{product.outlineDimension}</td>
-                      <td className="font-light p-2">{product.dotSize}</td>
-                      <td className="font-light p-2">{product.controller}</td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
+            <ProductGallery gallery={imageGallery}/>
+            <div className="text-rd-darkGray text-sm md:text-base leading-6 font-normal ">
+              <h2 className="text-2xl md:text-3xl text-rd-yellow mb-6">{name}</h2>
+             
+              <p className="font-bold text-xl mb-1">Feature</p>
+              {/* if display, insert unit */}
+              {Object.entries(feature).map(([ key, data ], i) => <p key={i} className=" text-rd-darkGray "><strong>{toTitleCase(key) } :</strong>&nbsp;&nbsp; {data}</p>)}
+              
+            </div>
           </div>
-        {/* </div> */}
+          <div className="text-rd-darkGray text-left">
+            <h4 className="pt-6 pb-2 font-light text-rd-yellow text-2xl">Mechanical Data</h4>
+            <MechTable mechanicalData={mechanicalData}/>
+            <h4 className="pt-6 pb-2 font-light text-rd-yellow text-2xl">Interface Pin Function</h4>
+            <PinTable pinFunction={interfacePinFunction}/>
+            <h4 className="pt-6 pb-2 font-light text-rd-yellow text-2xl">Display Address</h4>
+            {displayAddress.length > 0 && 
+            <DisplayAddTable displayAddress={displayAddress}/>
+            }
+            <h4 className="pt-6 pb-2 font-light text-rd-yellow text-2xl">Electrical Characterisitics</h4>
+            <ElectricalTable electricalChar={electricalChar}/>
+
+
+              <h3 className="font-light text-rd-yellow text-2xl">Dimensional Drawing</h3>
+              {/* <div className=">
+
+                <Img fluid={product.dimensionalDrawing.asset.fluid}/>
+              </div> */}
+
+          </div>
+        </div>
 
       </SubNavbar>
     )
 }
-export default Product
+export default product
 
 export const query = graphql`
-query {
-  product:allSanityProduct(filter: {slug: {current: {eq: "stn-lcd-panel"}}}) {
+query($slug: String) {
+  product:allSanityProduct(filter: {slug: {current: {eq: $slug }}}) {
     nodes {
-     
+ 
       name
-    
+      cover {
+        asset {
+        fixed(width: 140) {
+        ...GatsbySanityImageFixed
+        }
+          
+        }
+      }
+       feature {
+        display
+        lcd
+        driverCondition
+        viewingDirection
+        backlight
+        interface
+        driverIC
+      }
+      name
+      displayAddress 
+      interfacePinFunction {
+        pinNumber
+        symbol
+        function
+      }
+      mechanicalData {
+        outlineDimension
+        viewingArea
+        dotSize
+        dotPitch
+        characterSize
+      }
+      electricalChar {
+        item
+        symbol
+        condition
+        min
+        type
+        max
+        unit
+      }
+      
+ 
       imageGallery {
         asset {
-          fixed(width: 140) {
-          ...GatsbySanityImageFixed
+          fluid(maxWidth: 700) {
+          ...GatsbySanityImageFluid
           }
           
         }
       }
+      dimensionalDrawing {
+      asset {
+        fluid(maxWidth: 650) {
+          ...GatsbySanityImageFluid
+      }
+      }
+      }
 
+     
     }
   }
 
 }
 `
+
+   

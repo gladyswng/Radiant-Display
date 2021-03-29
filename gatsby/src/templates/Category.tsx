@@ -126,8 +126,8 @@ const Category: React.FC<CategoryProps> = ({data}) => {
 export default Category
 
 export const query = graphql`
-  query {
-    category: allSanityCategory {
+  query($slug: String) {
+    category: allSanityCategory(filter: {slug: {current: {eq: $slug }}}) {
     nodes {
       name
       image {

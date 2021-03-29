@@ -47,25 +47,21 @@ const SubNavbar: React.FC<SubNavbarProps> = ({ children, subNav }) => {
       title: 'PRODUCTS',
       links: [
         {
-          title: 'STN LCD',
-          link: '/STN'
+          title: 'Character LCD',
+          link: '/character'
         },
         {
-          title: 'FSTD LCD',
-          link: '/FSTD'
+          title: 'Graphic LCD',
+          link: '/graphic'
         },
         {
-          title: 'TN LCD',
-          link: '/TN'
+          title: 'COG LCD',
+          link: '/cog'
         },
         {
-          title: 'HTN LCD',
-          link: '/HTN'
-        },
-        {
-          title: 'VA LCD',
-          link: '/VA'
-        },
+          title: 'Custom LCD',
+          link: '/custom'
+        }
 
       ]
     }

@@ -43,7 +43,7 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ gallery }) => {
           
 
         </div>
-        <div className="flex flex-start">
+        <div className="flex flex-start ">
           {gallery.map((image, i )=> {
             return (
               <div key={i} className="w-20 bg-rd-lightGray mr-2 my-2" onClick={()=> setCurrentImage(image)}>

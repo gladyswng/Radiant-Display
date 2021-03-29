@@ -20,8 +20,9 @@ interface Image {
 const Index = ({ data }: Props): ReactElement => {
   
   
-  const products = data.products.nodes
+  const products = data.category.nodes
   console.log(data)
+  console.log(products)
   return (
     <div className="flex flex-col items-center">
 
@@ -153,11 +154,11 @@ query {
     }
   }
 
-  products:allSanityProduct {
+  category:allSanityCategory {
     nodes {
       id
       name
-      cover {
+      image {
         asset {
           fixed(width: 140) {
             ...GatsbySanityImageFixed

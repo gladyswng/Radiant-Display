@@ -37,9 +37,38 @@ async function turnCategoryIntoPages({ graphql, actions }) {
 
 }
 
+async function turnProductIntoPages({ graphql, actions }) {
+
+  const productTemplate = path.resolve('./src/templates/Product.tsx')
+
+  const { data } = await graphql(`
+    query {
+      product: allSanityProduct {
+        nodes {
+          name
+          slug {
+            current
+          }
+        }
+      }
+    }
+  `)
+
+  data.product.nodes.forEach(product => {
+    actions.createPage({
+      path: `product/${product.slug.current}`,
+      component: productTemplate,
+      context: {
+        slug: product.slug.current
+      }
+    })
+  })
+
+}
 
 exports.createPages = async(params) => {
   await Promise.all([
-    turnCategoryIntoPages(params)
+    turnCategoryIntoPages(params),
+    turnProductIntoPages(params)
   ])
 }

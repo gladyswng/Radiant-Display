@@ -30,7 +30,8 @@ async function turnCategoryIntoPages({ graphql, actions }) {
       path: `category/${category.slug.current}`,
       component: categoryTemplate,
       context: {
-        slug: category.slug.current
+        slug: category.slug.current,
+        
       }
     })
   })

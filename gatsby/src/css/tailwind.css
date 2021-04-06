@@ -5,51 +5,76 @@
 @tailwind utilities;
 
 @layer components {
-
   .nav-btn {
     @apply block mt-4  mr-4 text-sm;
   }
-  
+
   .nav-btn:hover {
     @apply text-rd-yellow;
   }
-  
+
   .input-rd-gray {
     @apply block w-full rounded p-3 text-rd-darkGray font-light text-sm bg-rd-lightGray;
   }
 
   .table-cell {
-    @apply p-2 bg-rd-lightGray bg-opacity-25
+    @apply p-2 bg-rd-lightGray bg-opacity-25;
+  }
+  .form-input {
+    @apply block w-full rounded p-3 my-2 text-rd-darkGray font-light text-sm placeholder-rd-gray bg-rd-lightGray;
+  }
+  .form-input:focus {
+    @apply ring-rd-yellow border-rd-yellow;
+  }
+  .form-input-simple {
+    @apply block w-full rounded px-2 my-2 text-rd-darkGray
+      font-light text-sm placeholder-rd-gray;
+  }
+  .form-input-simple:focus {
+    @apply border-rd-yellow;
+  }
+  .btn-response {
+  }
+  .btn-responsd:hover {
+    @apply border-rd-yellow text-rd-yellow;
+  }
+  .btn-respons:focus {
+    @apply outline-none ring border-rd-yellow;
   }
 }
-
- 
 
 @screen md {
   .nav-btn {
     @apply inline-block mt-0;
   }
+  .form-input-simple {
+    @apply my-0;
+  }
+  .form-input {
+    @apply my-0;
+  }
 }
 
 @layer base {
-  html,body {
-    @applay w-full m-0 p-0 overflow-x-hidden
+  html,
+  body {
+    @applay w-full m-0 p-0 overflow-x-hidden;
   }
 }
 
 @layer utilities {
-    @variants responsive {
-        .text-shadow {
-          text-shadow: 2px 2px 4px black;
-        }
-        .text-shadow-md {
-          text-shadow: 4px 4px 8px black;
-        }
-        .text-shadow-lg {
-          text-shadow: 15px 15px 30px black;
-        }
-        .text-shadow-none {
-          text-shadow: none;
-        }
-    } 
+  @variants responsive {
+    .text-shadow {
+      text-shadow: 2px 2px 4px black;
+    }
+    .text-shadow-md {
+      text-shadow: 4px 4px 8px black;
+    }
+    .text-shadow-lg {
+      text-shadow: 15px 15px 30px black;
+    }
+    .text-shadow-none {
+      text-shadow: none;
+    }
+  }
 }

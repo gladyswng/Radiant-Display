@@ -13,15 +13,18 @@ interface CategoriesProps {
     name: string,
     id: string
   } []
+  // slug: string
 }
 
 const Categories: React.FC<CategoriesProps> = ({ products }) => {
   console.log(products)
+  // console.log(slug)
     return (
       <div className="flex flex-wrap justify-center items-center my-4">
         {/* grid gap-4 grid-cols-3 xl:grid-cols-5 */}
         
           {products.map(product => {
+            // Object.values(yourTestObject).every(Boolean)
             if (!product.name || !product.image || !product.id) {
               return null
             }
@@ -42,7 +45,7 @@ const Categories: React.FC<CategoriesProps> = ({ products }) => {
 
               </div>
                 <Link
-                to="/" className="text-rd-darkGray mt-4 hover:text-rd-yellow">{product.name}</Link>
+                to="/" className="text-rd-darkGray mt-4 hover:text-rd-yellow">{product.name} LCD</Link>
               </div>
             )
           })}

@@ -25,7 +25,8 @@ module.exports = {
       'rd-gray': "#828282",
       'rd-darkGray': "#454545",
       'rd-lightGray': "#ededed",
-      'rd-white': "#fff"
+      'rd-white': "#fff",
+      'rd-red': "#fc5d24"
     },
     placeholderColor: {
       'rd-lightGray': "#ededed",

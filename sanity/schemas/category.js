@@ -37,6 +37,13 @@ export default {
       type: 'array',
       of:[{ type: 'string' }],
       description: 'Details of the product'
+    },
+    {
+      name: 'tableKeys',
+      title: 'Table Keys',
+      type: 'array',
+      of:[{ type: 'string' }],
+      description: 'Headers that needs to be displayed in the table.'
     }
   ]
 }

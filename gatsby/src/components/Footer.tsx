@@ -6,7 +6,7 @@ import PhoneIcon from '../svg/phone.svg'
 import MailIcon from '../svg/email.svg'
 import LocationIcon from '../svg/location.svg'
 import { Link } from 'gatsby'
-import ContactForm from './ContactForm'
+import ContactForm from './content/ContactForm'
 interface FooterProps {
 
 }

@@ -3,7 +3,7 @@ import { toTitleCase } from '../../util/helperFunctions'
 
 interface MechTableProps {
   mechanicalData: {
-  characterSize: string
+  characterSize?: string
   dotPitch: string
   dotSize: string
   outlineDimension: string
@@ -24,6 +24,7 @@ const MechTable: React.FC<MechTableProps> = ({ mechanicalData }) => {
       </thead>
       <tbody className="">
         {Object.entries(mechanicalData).map(([key, data], i) => (
+        
           <tr  key={i}>
             <td className="text-left table-cell">{toTitleCase(key) }</td>
             <td className="font-light table-cell">{data}</td>

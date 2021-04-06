@@ -22,7 +22,7 @@ interface productProps {
           viewingDirection: string
         }
         mechanicalData: {
-          characterSize: string
+          characterSize?: string
           dotPitch: string
           dotSize: string
           outlineDimension: string
@@ -42,7 +42,7 @@ interface productProps {
           max: string
           unit: string
         }[]
-        displayAddress: string[]
+        displayAddress?: string[]
         cover: {
           asset: {
             fluid: FluidObject
@@ -101,7 +101,7 @@ const product: React.FC<productProps> = ({ data }) => {
             <h4 className="pt-6 pb-2 font-light text-rd-yellow text-2xl">Interface Pin Function</h4>
             <PinTable pinFunction={interfacePinFunction}/>
             <h4 className="pt-6 pb-2 font-light text-rd-yellow text-2xl">Display Address</h4>
-            {displayAddress.length > 0 && 
+            {displayAddress && 
             <DisplayAddTable displayAddress={displayAddress}/>
             }
             <h4 className="pt-6 pb-2 font-light text-rd-yellow text-2xl">Electrical Characterisitics</h4>

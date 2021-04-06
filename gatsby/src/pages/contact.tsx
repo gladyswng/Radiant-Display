@@ -1,6 +1,6 @@
 import React from 'react'
 import ContactCard from '../components/ContactCard'
-import ContactForm from '../components/ContactForm'
+import ContactForm from '../components/content/ContactForm'
 
 interface contactProps {
 
@@ -38,7 +38,7 @@ const contact: React.FC<contactProps> = ({}) => {
       <div className="flex items-center flex-col w-full mb-40">
         <h1 className="text-rd-darkGray text-3xl md:text-4xl font-bold my-6">CONTACT US</h1>
 
-        <div className="md:grid md:grid-cols-3 md:gap-16 px-9 w-9/12">
+        <div className="md:grid md:grid-cols-3 md:gap-16 md:px-9 w-9/12">
         {/* md:grid md:grid-cols-2 md:gap-16 px-9 w-8/12 */}
           <div className="col-span-2">
 

@@ -2,6 +2,7 @@ import React from 'react'
 import SubNavbar from '../components/SubNavbar'
 import Img, { FluidObject } from 'gatsby-image'
 import { graphql } from 'gatsby'
+import product from '../pages/product'
 
 interface CategoryProps {
   data: {
@@ -11,7 +12,8 @@ interface CategoryProps {
         image: Image
         description: string
         details: string[]
-
+        tableHeaders: string[]
+        headerOptions: ("characterSize" | "display" | "dotSize" | "driverIC" | "outlineDimension" | "viewingArea" | "item" | "dotPitch")[]
 
       } []
     }
@@ -24,8 +26,9 @@ interface CategoryProps {
           driverIC: string
         }
         mechanicalData: {
-          characterSize: string
+          characterSize?: string
           dotSize: string
+          dotPitch?: string
           outlineDimension: string
           viewingArea: string
         }
@@ -41,16 +44,33 @@ interface Image {
   }
 } 
 
+interface IProduct {
+  characterSize?: string
+  dotSize: string
+  outlineDimension: string
+  viewingArea: string
+  display: string
+  driverIC: string
+  item: string
+  dotPitch?: string
+}
+
+
+
 const Category: React.FC<CategoryProps> = ({data}) => {
  console.log(data)
   const category = data.category.nodes[0]
   const productList = data.product.nodes
-  const sortedList = productList.map(prod => {
-  const { characterSize, display,  dotSize, driverIC, outlineDimension, viewingArea  } = {...prod.feature, ...prod.mechanicalData }
-    return [ display.replace(/ *\([^)]*\) */g,''), prod.item, viewingArea, outlineDimension.replace(/ *\([^)]*\) */g,''), dotSize, characterSize, driverIC ]
+
+  const sortedList = productList.map(prod => { 
+    const product: IProduct = {...prod.feature, ...prod.mechanicalData, item: prod.item }
+    const newItem = category.headerOptions.map((key )=> key==='item'? product[key] : product[key]?.replace(/ *\([^)]*\) *|\b[^\d\W]+\b(?<!\bx)|(\(|\))/g,'').trim()) 
+    // const { characterSize, display,  dotSize, driverIC, outlineDimension, viewingArea  } = {...prod.feature, ...prod.mechanicalData }
+    //   return [ display.replace(/ *\([^)]*\) */g,''), prod.item, viewingArea, outlineDimension.replace(/ *\([^)]*\) */g,''), dotSize, characterSize, driverIC.replace(/\b[^\d\W]+\b/g,'') ]
+    return newItem
   })
   console.log(sortedList)
-  const tableHeaders = ['Display (C x L)', 'Item', 'ViewingArea', 'Outline Dimension', 'Dot Siz', 'Character Size', 'Controller']
+
   return (
 
     <SubNavbar subNav="products">
@@ -86,7 +106,7 @@ const Category: React.FC<CategoryProps> = ({data}) => {
             <table className="w-full text-center text-sm lg:text-base text-rd-darkGray relative " >
               <thead className="w-full">
                 <tr >
-                  {tableHeaders.map(header => (
+                  {category.tableHeaders.map(header => (
                     <th key={header} className="font-normal p-2 sticky top-0 bg-rd-lightGray pl-4">{header}</th>
                   ))}
                   
@@ -132,6 +152,8 @@ export const query = graphql`
       slug {
         current
       }
+      tableHeaders
+      headerOptions
     }
     }
 
@@ -139,6 +161,7 @@ export const query = graphql`
     nodes {
  
       name
+      item
       cover {
         asset {
         fixed(width: 140) {
@@ -151,13 +174,12 @@ export const query = graphql`
         display
         driverIC
       }
-      name
-      item
+      
       mechanicalData {
         outlineDimension
         viewingArea
         dotSize
-       
+        dotPitch
         characterSize
       }
 

@@ -47,7 +47,7 @@ const catogory: React.FC<categoryProps> = ({data}) => {
   const productList = [product, product, product, product, product, product]
   const sortedList = productList.map(prod => {
     const { characterSize, display,  dotSize, driverIC, outlineDimension, viewingArea  } = {...prod.feature, ...prod.mechanicalData }
-    return [ display.replace(/ *\([^)]*\) */g,''), prod.item, viewingArea, outlineDimension.replace(/ *\([^)]*\) */g,''), dotSize, characterSize, driverIC.replace(' OR EQUIVALENT', '') ]
+    return [ display.replace(/ *\([^)]*\) */g,''), prod.item, viewingArea, outlineDimension.replace(/ *\([^)]*\) */g,''), dotSize, characterSize, driverIC.replace('OR EQUIVALENT', '') ]
   })
   console.log(sortedList)
   const tableHeaders = ['Display (Character x Line)', 'Item', 'ViewingArea', 'OutlineDimension (L x W x TMax) ', 'Dot Siz', 'Character Size', 'Controller']

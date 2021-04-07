@@ -11,6 +11,7 @@ import pinFunction from './objects/pinFunction'
 import feature from './objects/feature'
 import mechanicalData from './objects/mechanicalData'
 import electricalChar from './objects/electricalChar'
+import headerOption from './objects/catogoryOption'
 // import displayAddress from './objects/displayAddress'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -26,7 +27,9 @@ export default createSchema({
     feature,
     pinFunction,
     mechanicalData,
-    electricalChar
+    electricalChar,
+    headerOption
+
     // displayAddress
     /* Your types here! */
   ])

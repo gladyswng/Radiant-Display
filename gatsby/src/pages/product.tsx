@@ -59,6 +59,12 @@ interface productProps {
             fluid: FluidObject 
           }
         }
+
+        spc?: {
+          asset: {
+            url: string
+          }
+        }
       }[]
     }
   }
@@ -66,7 +72,7 @@ interface productProps {
 
 const product: React.FC<productProps> = ({ data }) => {
   console.log(data.product.nodes[0])
-  const { name, feature, mechanicalData, interfacePinFunction, displayAddress, electricalChar, cover, imageGallery } = data.product.nodes[0]
+  const { name, feature, mechanicalData, interfacePinFunction, displayAddress, electricalChar, cover, imageGallery, spc } = data.product.nodes[0]
   const toTitleCase = (phrase: string) => {
     const str =  phrase
     .replace(/([a-z])([A-Z])/g, '$1 $2')
@@ -82,17 +88,21 @@ const product: React.FC<productProps> = ({ data }) => {
       <SubNavbar subNav="products">
         <div className="w-11/12 md:w-8/12 m-auto">
 
-          <div className="lg:flex items-end justify-between pb-6 border-rd-yellow">
+          <div className="lg:flex justify-start items-end  pb-6 border-rd-yellow">
             {/* md:grid lg:grid-cols-2  md:gap-4 lg:gap-20 items-end */}
 
             <ProductGallery gallery={imageGallery}/>
-            <div className="text-rd-darkGray text-sm md:text-base leading-6 font-normal ">
+            <div className="text-rd-darkGray text-sm md:text-base leading-6 font-normal xl:ml-20">
               <h2 className="text-2xl md:text-3xl text-rd-yellow mb-6">{name}</h2>
              
               <p className="font-bold text-xl mb-1">Feature</p>
               {/* if display, insert unit */}
-              {Object.entries(feature).map(([ key, data ], i) => <p key={i} className=" text-rd-darkGray "><strong>{toTitleCase(key) } :</strong>&nbsp;&nbsp; {data}</p>)}
-              
+              <div className="mb-2">
+                {Object.entries(feature).map(([ key, data ], i) => <p key={i} className=" text-rd-darkGray "><strong>{toTitleCase(key) } :</strong>&nbsp;&nbsp; {data}</p>)}
+
+              </div>
+              {spc && <a href={spc.asset.url} className="border border-rd-yellow p-1 " target = "_blank" 
+              rel = "noopener noreferrer">Specification PDF</a>}
             </div>
           </div>
           <div className="text-rd-darkGray text-left">
@@ -169,7 +179,7 @@ query {
         unit
       }
       
- 
+      
       imageGallery {
         asset {
           fluid(maxWidth: 700) {
@@ -182,8 +192,13 @@ query {
       asset {
         fluid(maxWidth: 650) {
           ...GatsbySanityImageFluid
+        }
       }
       }
+      spc {
+        asset {
+          url
+        }
       }
 
      

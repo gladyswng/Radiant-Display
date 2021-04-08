@@ -32,9 +32,10 @@ module.exports = {
       'rd-lightGray': "#ededed",
       'rd-gray': "#828282",
     },
-    scale: {
-      '200': '2'
-    },
+    // scale: {
+    //   '200': '2'
+    // },
+    // scale: ['hover'],
     cursor: {
       'zoom-in': 'zoom-in',
       'pointer': 'pointer'

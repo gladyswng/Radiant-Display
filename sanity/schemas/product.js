@@ -78,6 +78,11 @@ export default {
       type: 'array',
       of: [{ type: 'string' }],
       
+    },
+    {
+      name: 'spc',
+      title: 'specification',
+      type: 'file'
     }
   ]
 }

@@ -20,9 +20,9 @@ interface Image {
 const Index = ({ data }: Props): ReactElement => {
   
   
-  const products = data.category.nodes
+  const categories = data.category.nodes
   console.log(data)
-  console.log(products)
+  console.log(categories)
   return (
     <div className="flex flex-col items-center">
 
@@ -58,7 +58,7 @@ const Index = ({ data }: Props): ReactElement => {
         {/* font-semibold text-rd-gray */}
         <p className="text-rd-gray font-light my-2">With OUR own design team - a full trained quality control team, we tailor made products according to customer's needs and ensure goods produced in the best environment & the best quality.</p>
         
-        <Categories products={products}/>
+        <Categories categories={categories}/>
         {/* <p className="text-rd-gray font-light my-4">we also provide comprehensive customize service where you can customize according to your need, with any size, color or type, to provide the best product you want.</p> */}
       </div>
 
@@ -158,6 +158,9 @@ query {
     nodes {
       id
       name
+      slug {
+        current
+      }
       image {
         asset {
           fixed(width: 140) {

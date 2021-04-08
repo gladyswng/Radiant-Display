@@ -8,7 +8,7 @@ import PinTable from '../components/content/PinTable'
 import DisplayAddTable from '../components/content/DisplayAddTable'
 import ElectricalTable from '../components/content/ElectricalTable'
 
-interface productProps {
+interface ProductProps {
   data: {
     product: {
       nodes: {
@@ -64,7 +64,7 @@ interface productProps {
   }
 }
 
-const product: React.FC<productProps> = ({ data }) => {
+const Product: React.FC<ProductProps> = ({ data }) => {
   console.log(data.product.nodes[0])
   const { name, feature, mechanicalData, interfacePinFunction, displayAddress, electricalChar, imageGallery } = data.product.nodes[0]
   const toTitleCase = (phrase: string) => {
@@ -120,7 +120,7 @@ const product: React.FC<productProps> = ({ data }) => {
       </SubNavbar>
     )
 }
-export default product
+export default Product
 
 export const query = graphql`
 query($slug: String) {

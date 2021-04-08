@@ -80,8 +80,8 @@ const Category: React.FC<CategoryProps> = ({data}) => {
 
         <div className="md:grid md:grid-cols-3 md:gap-8">
           
-          <div className="w-full m-auto">
-            <Img fluid={category.image.asset.fluid}/>
+          <div className="w-full m-auto h-52">
+            <Img fluid={category.image.asset.fluid} className=" h-full" imgStyle={{ objectFit: "contain" }}/>
           </div>
 
           <div className="col-span-2 ">
@@ -189,30 +189,3 @@ export const query = graphql`
   
   }
 `
-
-// query MyQuery {
-//   allSanityProduct(filter: {category: {eq: "STN"}}) {
-//     nodes {
-//       description
-//       name
-//       keywords
-//       imageGallery {
-//         asset {
-//           fixed {
-//             src
-//           }
-//         }
-//       }
-//       outlineDimension
-//       pixelPitch
-//       resolution
-//       size
-//       item
-//       dotSize
-//       displayColor
-//       children {
-//         id
-//       }
-//     }
-//   }
-// }

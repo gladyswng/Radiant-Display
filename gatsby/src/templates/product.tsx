@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby'
-import React, { useState } from 'react'
+import React from 'react'
 import SubNavbar from '../components/SubNavbar'
 import Img, { FluidObject } from 'gatsby-image'  
 import ProductGallery from '../components/content/ProductGallery'

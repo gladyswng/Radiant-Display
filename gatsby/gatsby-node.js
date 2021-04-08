@@ -40,7 +40,7 @@ async function turnCategoryIntoPages({ graphql, actions }) {
 
 async function turnProductIntoPages({ graphql, actions }) {
 
-  const productTemplate = path.resolve('src/templates/Product.tsx')
+  const productTemplate = path.resolve('./src/templates/Product.tsx')
 
   const { data } = await graphql(`
     query {

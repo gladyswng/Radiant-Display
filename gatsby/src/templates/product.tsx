@@ -48,7 +48,7 @@ interface ProductProps {
             fluid: FluidObject
           }
         }
-        imageGallery: {
+        imageGallery?: {
           asset: {
             fluid: FluidObject 
           }
@@ -77,6 +77,7 @@ const Product: React.FC<ProductProps> = ({ data }) => {
   // const ekstraMechanicalData = mechanicalData.forEach(data => {
   //   if (data[0] === 'dotSize')
   // })
+  console.log(imageGallery)
 
     return (
       <SubNavbar subNav="products">
@@ -85,7 +86,7 @@ const Product: React.FC<ProductProps> = ({ data }) => {
           <div className="lg:flex items-end justify-between pb-6 border-rd-yellow">
             {/* md:grid lg:grid-cols-2  md:gap-4 lg:gap-20 items-end */}
 
-            <ProductGallery gallery={imageGallery}/>
+           {!!imageGallery?.length && <ProductGallery gallery={imageGallery}/>}
             <div className="text-rd-darkGray text-sm md:text-base leading-6 font-normal ">
               <h2 className="text-2xl md:text-3xl text-rd-yellow mb-6">{name}</h2>
              

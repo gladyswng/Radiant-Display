@@ -101,12 +101,18 @@ const Product: React.FC<ProductProps> = ({ data }) => {
             <MechTable mechanicalData={mechanicalData}/>
             <h4 className="pt-6 pb-2 font-light text-rd-yellow text-2xl">Interface Pin Function</h4>
             <PinTable pinFunction={interfacePinFunction}/>
-            <h4 className="pt-6 pb-2 font-light text-rd-yellow text-2xl">Display Address</h4>
-            {displayAddress && 
-            <DisplayAddTable displayAddress={displayAddress}/>
-            }
-            <h4 className="pt-6 pb-2 font-light text-rd-yellow text-2xl">Electrical Characterisitics</h4>
-            <ElectricalTable electricalChar={electricalChar}/>
+            {!!displayAddress?.length && (
+              <>
+              <h4 className="pt-6 pb-2 font-light text-rd-yellow text-2xl">Display Address</h4>
+              
+              <DisplayAddTable displayAddress={displayAddress}/>
+              </>
+            )}
+            {electricalChar && <>
+              <h4 className="pt-6 pb-2 font-light text-rd-yellow text-2xl">Electrical Characterisitics</h4>
+              <ElectricalTable electricalChar={electricalChar}/>
+            
+            </>}
 
 
               <h3 className="font-light text-rd-yellow text-2xl">Dimensional Drawing</h3>

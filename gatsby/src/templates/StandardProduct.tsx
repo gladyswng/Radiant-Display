@@ -92,7 +92,7 @@ const Product: React.FC<ProductProps> = ({ data }) => {
              
               <p className="font-bold text-xl mb-1">Feature</p>
               {/* if display, insert unit */}
-              {Object.entries(feature).map(([ key, data ], i) => <p key={i} className=" text-rd-darkGray "><strong>{toTitleCase(key) } :</strong>&nbsp;&nbsp; {data}</p>)}
+              {feature && Object.entries(feature).map(([ key, data ], i) => data && (<p key={i} className=" text-rd-darkGray "><strong>{toTitleCase(key) } :</strong>&nbsp;&nbsp; {data}</p>))}
               
             </div>
           </div>

@@ -23,7 +23,7 @@ const MechTable: React.FC<MechTableProps> = ({ mechanicalData }) => {
         </tr>
       </thead>
       <tbody className="">
-        {Object.entries(mechanicalData).map(([key, data], i) => !!data &&(
+        {mechanicalData && Object.entries(mechanicalData).map(([key, data], i) => !!data &&(
         
           <tr  key={i}>
             <td className="text-left table-cell">{toTitleCase(key) }</td>
